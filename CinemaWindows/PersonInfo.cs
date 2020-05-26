@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Windows.Forms.VisualStyles;
 
 namespace CinemaWindows
 {
@@ -19,10 +21,24 @@ namespace CinemaWindows
 
 		private void PersonInfoNext_Click(object sender, EventArgs e)
 		{
-			this.Hide();
-			HomeScreen personInfoform = new HomeScreen();
-			personInfoform.ShowDialog();
-			this.Close();
+			bool IsValidEmail(string emailaddress)
+			{
+				Regex rx = new Regex(
+				@"^[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z{|}~])*@[a-zA-Z](-?[a-zA-Z0-9])*(\.[a-zA-Z](-?[a-zA-Z0-9])*)+$");
+				return rx.IsMatch(EmailInput.Text);
+			}
+			if(IsValidEmail(EmailInput.Text))
+			{
+				this.Hide();
+				HomeScreen personInfoform = new HomeScreen();
+				personInfoform.ShowDialog();
+				this.Close();
+			}
+			else
+			{
+				EmailInput.Clear();
+				MessageBox.Show("The email was not valid. Please try again", "Invalid Email",MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void NameInput_TextChanged(object sender, EventArgs e)
