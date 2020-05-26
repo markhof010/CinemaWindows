@@ -19,8 +19,18 @@ namespace CinemaWindows
 
 		private void loginButon_Click(object sender, EventArgs e)
 		{
+			Hide();
 			InlogPage form = new InlogPage();
-			form.Show();
+			form.ShowDialog();
+			Close();
+		}
+
+		private void PersonInfoButton_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			PersonInfo personInfoform = new PersonInfo();
+			personInfoform.ShowDialog();
+			this.Close();
 		}
 	}
 }

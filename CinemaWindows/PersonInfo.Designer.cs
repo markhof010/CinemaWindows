@@ -28,87 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.Name = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
+			this.name = new System.Windows.Forms.Label();
+			this.surname = new System.Windows.Forms.Label();
+			this.email = new System.Windows.Forms.Label();
 			this.NameInput = new System.Windows.Forms.TextBox();
-			this.SurnameInput = new System.Windows.Forms.TextBox();
-			this.EmailInput = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
-			// Name
+			// name
 			// 
-			this.Name.AutoSize = true;
-			this.Name.Location = new System.Drawing.Point(120, 101);
-			this.Name.Name = "Name";
-			this.Name.Size = new System.Drawing.Size(38, 13);
-			this.Name.TabIndex = 0;
-			this.Name.Text = "Name:";
+			this.name.AutoSize = true;
+			this.name.Location = new System.Drawing.Point(129, 111);
+			this.name.Name = "name";
+			this.name.Size = new System.Drawing.Size(38, 13);
+			this.name.TabIndex = 0;
+			this.name.Text = "Name:";
 			// 
-			// label1
+			// surname
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(120, 237);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(69, 13);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Email adress:";
+			this.surname.AutoSize = true;
+			this.surname.Location = new System.Drawing.Point(129, 185);
+			this.surname.Name = "surname";
+			this.surname.Size = new System.Drawing.Size(52, 13);
+			this.surname.TabIndex = 1;
+			this.surname.Text = "Surname:";
 			// 
-			// label2
+			// email
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(120, 163);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(52, 13);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "Surname:";
+			this.email.AutoSize = true;
+			this.email.Location = new System.Drawing.Point(129, 258);
+			this.email.Name = "email";
+			this.email.Size = new System.Drawing.Size(75, 13);
+			this.email.TabIndex = 2;
+			this.email.Text = "Email address:";
 			// 
 			// NameInput
 			// 
-			this.NameInput.Location = new System.Drawing.Point(123, 118);
+			this.NameInput.Location = new System.Drawing.Point(132, 128);
 			this.NameInput.Name = "NameInput";
 			this.NameInput.Size = new System.Drawing.Size(100, 20);
 			this.NameInput.TabIndex = 3;
-			// 
-			// SurnameInput
-			// 
-			this.SurnameInput.Location = new System.Drawing.Point(123, 180);
-			this.SurnameInput.Name = "SurnameInput";
-			this.SurnameInput.Size = new System.Drawing.Size(100, 20);
-			this.SurnameInput.TabIndex = 4;
-			// 
-			// EmailInput
-			// 
-			this.EmailInput.Location = new System.Drawing.Point(123, 254);
-			this.EmailInput.Name = "EmailInput";
-			this.EmailInput.Size = new System.Drawing.Size(100, 20);
-			this.EmailInput.TabIndex = 5;
 			// 
 			// PersonInfo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(993, 558);
-			this.Controls.Add(this.EmailInput);
-			this.Controls.Add(this.SurnameInput);
 			this.Controls.Add(this.NameInput);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.Name);
+			this.Controls.Add(this.email);
+			this.Controls.Add(this.surname);
+			this.Controls.Add(this.name);
 			this.Name = "PersonInfo";
 			this.Text = "PersonInfo";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
         }
-
 		#endregion
 
-		private System.Windows.Forms.Label Name;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label name;
+		private System.Windows.Forms.Label surname;
+		private System.Windows.Forms.Label email;
 		private System.Windows.Forms.TextBox NameInput;
-		private System.Windows.Forms.TextBox SurnameInput;
-		private System.Windows.Forms.TextBox EmailInput;
 	}
 }
