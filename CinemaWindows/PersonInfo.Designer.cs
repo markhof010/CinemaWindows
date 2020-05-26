@@ -32,6 +32,9 @@
 			this.surname = new System.Windows.Forms.Label();
 			this.email = new System.Windows.Forms.Label();
 			this.NameInput = new System.Windows.Forms.TextBox();
+			this.SurnameInput = new System.Windows.Forms.TextBox();
+			this.EmailInput = new System.Windows.Forms.TextBox();
+			this.PersonInfoNext = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// name
@@ -67,12 +70,43 @@
 			this.NameInput.Name = "NameInput";
 			this.NameInput.Size = new System.Drawing.Size(100, 20);
 			this.NameInput.TabIndex = 3;
+			this.NameInput.TextChanged += new System.EventHandler(this.NameInput_TextChanged);
+			// 
+			// SurnameInput
+			// 
+			this.SurnameInput.Location = new System.Drawing.Point(132, 201);
+			this.SurnameInput.Name = "SurnameInput";
+			this.SurnameInput.Size = new System.Drawing.Size(100, 20);
+			this.SurnameInput.TabIndex = 4;
+			this.SurnameInput.TextChanged += new System.EventHandler(this.SurnameInput_TextChanged);
+			// 
+			// EmailInput
+			// 
+			this.EmailInput.Location = new System.Drawing.Point(132, 274);
+			this.EmailInput.Name = "EmailInput";
+			this.EmailInput.Size = new System.Drawing.Size(100, 20);
+			this.EmailInput.TabIndex = 5;
+			this.EmailInput.TextChanged += new System.EventHandler(this.EmailInput_TextChanged);
+			// 
+			// PersonInfoNext
+			// 
+			this.PersonInfoNext.Enabled = false;
+			this.PersonInfoNext.Location = new System.Drawing.Point(537, 199);
+			this.PersonInfoNext.Name = "PersonInfoNext";
+			this.PersonInfoNext.Size = new System.Drawing.Size(75, 23);
+			this.PersonInfoNext.TabIndex = 6;
+			this.PersonInfoNext.Text = "Next";
+			this.PersonInfoNext.UseVisualStyleBackColor = true;
+			this.PersonInfoNext.Click += new System.EventHandler(this.PersonInfoNext_Click);
 			// 
 			// PersonInfo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(993, 558);
+			this.Controls.Add(this.PersonInfoNext);
+			this.Controls.Add(this.EmailInput);
+			this.Controls.Add(this.SurnameInput);
 			this.Controls.Add(this.NameInput);
 			this.Controls.Add(this.email);
 			this.Controls.Add(this.surname);
@@ -89,5 +123,8 @@
 		private System.Windows.Forms.Label surname;
 		private System.Windows.Forms.Label email;
 		private System.Windows.Forms.TextBox NameInput;
+		private System.Windows.Forms.TextBox SurnameInput;
+		private System.Windows.Forms.TextBox EmailInput;
+		private System.Windows.Forms.Button PersonInfoNext;
 	}
 }
