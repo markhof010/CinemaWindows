@@ -30,7 +30,7 @@ namespace CinemaWindows
 			if(IsValidEmail(EmailInput.Text))
 			{
 				this.Hide();
-				HomeScreen personInfoform = new HomeScreen();
+				Overview personInfoform = new Overview(NameInput.Text,SurnameInput.Text,EmailInput.Text);
 				personInfoform.ShowDialog();
 				this.Close();
 			}
