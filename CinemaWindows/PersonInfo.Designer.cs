@@ -35,6 +35,14 @@
 			this.SurnameInput = new System.Windows.Forms.TextBox();
 			this.EmailInput = new System.Windows.Forms.TextBox();
 			this.PersonInfoNext = new System.Windows.Forms.Button();
+			this.movielbl = new System.Windows.Forms.Label();
+			this.titellbl = new System.Windows.Forms.Label();
+			this.seatlbl = new System.Windows.Forms.Label();
+			this.seatslbl = new System.Windows.Forms.Label();
+			this.totalpricelbl = new System.Windows.Forms.Label();
+			this.pricelbl = new System.Windows.Forms.Label();
+			this.timechosenlbl = new System.Windows.Forms.Label();
+			this.timelbl = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// name
@@ -91,7 +99,7 @@
 			// PersonInfoNext
 			// 
 			this.PersonInfoNext.Enabled = false;
-			this.PersonInfoNext.Location = new System.Drawing.Point(537, 199);
+			this.PersonInfoNext.Location = new System.Drawing.Point(439, 415);
 			this.PersonInfoNext.Name = "PersonInfoNext";
 			this.PersonInfoNext.Size = new System.Drawing.Size(75, 23);
 			this.PersonInfoNext.TabIndex = 6;
@@ -99,11 +107,91 @@
 			this.PersonInfoNext.UseVisualStyleBackColor = true;
 			this.PersonInfoNext.Click += new System.EventHandler(this.PersonInfoNext_Click);
 			// 
+			// movielbl
+			// 
+			this.movielbl.AutoSize = true;
+			this.movielbl.Location = new System.Drawing.Point(540, 111);
+			this.movielbl.Name = "movielbl";
+			this.movielbl.Size = new System.Drawing.Size(39, 13);
+			this.movielbl.TabIndex = 7;
+			this.movielbl.Text = "Movie:";
+			// 
+			// titellbl
+			// 
+			this.titellbl.AutoSize = true;
+			this.titellbl.Location = new System.Drawing.Point(543, 128);
+			this.titellbl.Name = "titellbl";
+			this.titellbl.Size = new System.Drawing.Size(125, 13);
+			this.titellbl.TabIndex = 8;
+			this.titellbl.Text = "hier moet een titel komen";
+			// 
+			// seatlbl
+			// 
+			this.seatlbl.AutoSize = true;
+			this.seatlbl.Location = new System.Drawing.Point(543, 167);
+			this.seatlbl.Name = "seatlbl";
+			this.seatlbl.Size = new System.Drawing.Size(37, 13);
+			this.seatlbl.TabIndex = 9;
+			this.seatlbl.Text = "Seats:";
+			// 
+			// seatslbl
+			// 
+			this.seatslbl.AutoSize = true;
+			this.seatslbl.Location = new System.Drawing.Point(543, 180);
+			this.seatslbl.Name = "seatslbl";
+			this.seatslbl.Size = new System.Drawing.Size(128, 13);
+			this.seatslbl.TabIndex = 10;
+			this.seatslbl.Text = "hier moet de seats komen";
+			// 
+			// totalpricelbl
+			// 
+			this.totalpricelbl.AutoSize = true;
+			this.totalpricelbl.Location = new System.Drawing.Point(543, 230);
+			this.totalpricelbl.Name = "totalpricelbl";
+			this.totalpricelbl.Size = new System.Drawing.Size(126, 13);
+			this.totalpricelbl.TabIndex = 12;
+			this.totalpricelbl.Text = "hier moet de price komen";
+			// 
+			// pricelbl
+			// 
+			this.pricelbl.AutoSize = true;
+			this.pricelbl.Location = new System.Drawing.Point(543, 217);
+			this.pricelbl.Name = "pricelbl";
+			this.pricelbl.Size = new System.Drawing.Size(60, 13);
+			this.pricelbl.TabIndex = 11;
+			this.pricelbl.Text = "Totel price:";
+			// 
+			// timechosenlbl
+			// 
+			this.timechosenlbl.AutoSize = true;
+			this.timechosenlbl.Location = new System.Drawing.Point(543, 277);
+			this.timechosenlbl.Name = "timechosenlbl";
+			this.timechosenlbl.Size = new System.Drawing.Size(116, 13);
+			this.timechosenlbl.TabIndex = 14;
+			this.timechosenlbl.Text = "hier moet de tijd komen";
+			// 
+			// timelbl
+			// 
+			this.timelbl.AutoSize = true;
+			this.timelbl.Location = new System.Drawing.Point(543, 264);
+			this.timelbl.Name = "timelbl";
+			this.timelbl.Size = new System.Drawing.Size(33, 13);
+			this.timelbl.TabIndex = 13;
+			this.timelbl.Text = "Time:";
+			// 
 			// PersonInfo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(993, 558);
+			this.Controls.Add(this.timechosenlbl);
+			this.Controls.Add(this.timelbl);
+			this.Controls.Add(this.totalpricelbl);
+			this.Controls.Add(this.pricelbl);
+			this.Controls.Add(this.seatslbl);
+			this.Controls.Add(this.seatlbl);
+			this.Controls.Add(this.titellbl);
+			this.Controls.Add(this.movielbl);
 			this.Controls.Add(this.PersonInfoNext);
 			this.Controls.Add(this.EmailInput);
 			this.Controls.Add(this.SurnameInput);
@@ -126,5 +214,13 @@
 		private System.Windows.Forms.TextBox SurnameInput;
 		private System.Windows.Forms.TextBox EmailInput;
 		private System.Windows.Forms.Button PersonInfoNext;
+		private System.Windows.Forms.Label movielbl;
+		private System.Windows.Forms.Label titellbl;
+		private System.Windows.Forms.Label seatlbl;
+		private System.Windows.Forms.Label seatslbl;
+		private System.Windows.Forms.Label totalpricelbl;
+		private System.Windows.Forms.Label pricelbl;
+		private System.Windows.Forms.Label timechosenlbl;
+		private System.Windows.Forms.Label timelbl;
 	}
 }
