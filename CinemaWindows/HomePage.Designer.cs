@@ -29,40 +29,38 @@
 		private void InitializeComponent()
 		{
 			this.loginButon = new System.Windows.Forms.Button();
-			this.MovieInfoButton = new System.Windows.Forms.Button();
+			this.PersonInfoButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// loginButon
 			// 
 			this.loginButon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.loginButon.Location = new System.Drawing.Point(2092, 23);
-			this.loginButon.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.loginButon.Location = new System.Drawing.Point(1046, 12);
 			this.loginButon.Name = "loginButon";
-			this.loginButon.Size = new System.Drawing.Size(150, 44);
+			this.loginButon.Size = new System.Drawing.Size(75, 23);
 			this.loginButon.TabIndex = 0;
 			this.loginButon.Text = "login";
 			this.loginButon.UseVisualStyleBackColor = true;
 			this.loginButon.Click += new System.EventHandler(this.loginButon_Click);
 			// 
-			// MovieInfoButton
+			// PersonInfoButton
 			// 
-			this.MovieInfoButton.Location = new System.Drawing.Point(1021, 822);
-			this.MovieInfoButton.Name = "MovieInfoButton";
-			this.MovieInfoButton.Size = new System.Drawing.Size(271, 81);
-			this.MovieInfoButton.TabIndex = 1;
-			this.MovieInfoButton.Text = "Movie information";
-			this.MovieInfoButton.UseVisualStyleBackColor = true;
-			this.MovieInfoButton.Click += new System.EventHandler(this.MovieInfoButton_Click);
+			this.PersonInfoButton.Location = new System.Drawing.Point(203, 250);
+			this.PersonInfoButton.Name = "PersonInfoButton";
+			this.PersonInfoButton.Size = new System.Drawing.Size(130, 23);
+			this.PersonInfoButton.TabIndex = 1;
+			this.PersonInfoButton.Text = "Personal Information";
+			this.PersonInfoButton.UseVisualStyleBackColor = true;
+			this.PersonInfoButton.Click += new System.EventHandler(this.PersonInfoButton_Click);
 			// 
 			// HomeScreen
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(2266, 1183);
-			this.Controls.Add(this.MovieInfoButton);
+			this.ClientSize = new System.Drawing.Size(1133, 615);
+			this.Controls.Add(this.PersonInfoButton);
 			this.Controls.Add(this.loginButon);
 			this.ImeMode = System.Windows.Forms.ImeMode.Disable;
-			this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
 			this.Name = "HomeScreen";
 			this.Text = "Home Screen";
 			this.ResumeLayout(false);
@@ -72,7 +70,7 @@
 		#endregion
 
 		private System.Windows.Forms.Button loginButon;
-		private System.Windows.Forms.Button MovieInfoButton;
+		private System.Windows.Forms.Button PersonInfoButton;
 	}
 }
 
