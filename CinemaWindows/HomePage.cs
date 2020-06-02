@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CinemaWindows.Database;
 
 namespace CinemaWindows
 {
@@ -14,13 +15,28 @@ namespace CinemaWindows
 	{
 		public HomeScreen()
 		{
+			GetData GD = new GetData();
+			int hallid = GD.GetHallID(18);
 			InitializeComponent();
+			Label LB1 = new Label();
+			LB1.Text = hallid.ToString();
+			this.Controls.Add(LB1);
 		}
 
 		private void loginButon_Click(object sender, EventArgs e)
 		{
+			Hide();
 			InlogPage form = new InlogPage();
-			form.Show();
+			form.ShowDialog();
+			Close();
+		}
+
+		private void PersonInfoButton_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			PersonInfo personInfoform = new PersonInfo();
+			personInfoform.ShowDialog();
+			this.Close();
 		}
 	}
 }
