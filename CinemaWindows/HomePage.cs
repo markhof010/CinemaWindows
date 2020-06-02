@@ -22,5 +22,21 @@ namespace CinemaWindows
 			InlogPage form = new InlogPage();
 			form.Show();
 		}
+
+		private void MenuBTN_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			RestaurantMenu form = new RestaurantMenu();
+			form.ShowDialog();
+			this.Close();
+		}
+
+		private void ContactBTN_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			Contact form = new Contact();
+			form.ShowDialog();
+			this.Close();
+		}
 	}
 }
