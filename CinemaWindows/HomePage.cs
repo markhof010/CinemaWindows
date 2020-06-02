@@ -22,14 +22,26 @@ namespace CinemaWindows
 			LB1.Text = hallid.ToString();
 			this.Controls.Add(LB1);*/
 			GetData GD = new GetData();
+			int x = 20;
 
-			InitializeComponent();
-			Label LB1 = new Label();
-			string Title = GD.ShowMovies().Item2;
-			LB1.Text = Title.ToString();
-			LB1.Location = new Point((this.Width / 2) - 177, 120);
-			LB1.AutoSize = true;
-			this.Controls.Add(LB1);
+
+			foreach(Tuple<string, string, string, string, string, string, string, string> movie in GD.ShowMovies())
+			{
+				Label movieLabel = new Label();
+
+				movieLabel.Width = 150;
+				movieLabel.BorderStyle = BorderStyle.FixedSingle;
+				movieLabel.Text = "Title: " + movie.Item2.ToString();
+				movieLabel.Text = "Year: " + movie.Item3.ToString();
+				movieLabel.Text = "Title: " + movie.Item2.ToString();
+				movieLabel.Location = new Point(0 + x, 120);
+				movieLabel.AutoSize = false;
+
+				this.Controls.Add(movieLabel);
+
+				x += 200;
+			}
+
 		}
 
 		private void loginButon_Click(object sender, EventArgs e)

@@ -47,8 +47,9 @@ namespace CinemaWindows.Database
             return HallID;
         }
 
-        public Tuple<string,string,string> ShowMovies()
+        public List<Tuple<string, string, string, string, string, string, string, string>> ShowMovies()
         {
+            List<Tuple<string, string, string, string, string, string, string, string>> movielist = new List<Tuple<string, string, string, string, string, string, string, string>>();
             try
             {
                 List<int> MovieIDs = new List<int>();
@@ -60,6 +61,11 @@ namespace CinemaWindows.Database
                 string movieID;
                 string movieName;
                 string movieYear;
+                string movieSummary;
+                string movieActors;
+                string movieDuration;
+                string movieGenre;
+                string movieAge;
 
                 MySqlDataReader dataReader = command.ExecuteReader();
 
@@ -68,9 +74,16 @@ namespace CinemaWindows.Database
                     movieID = dataReader["MovieID"].ToString();
                     movieName = dataReader["MovieName"].ToString();
                     movieYear = dataReader["MovieYear"].ToString();
+                    movieSummary = dataReader["MovieSummary"].ToString();
+                    movieActors = dataReader["MovieActors"].ToString();
+                    movieDuration = dataReader["MovieDuration"].ToString();
+                    movieGenre = dataReader["MovieGenre"].ToString();
+                    movieAge = dataReader["MovieMinimumAge"].ToString();
 
-                    return Tuple.Create(movieID, movieName, movieYear);
+                    movielist.Add(Tuple.Create(movieID, movieName, movieYear, movieSummary, movieActors, movieDuration, movieGenre, movieAge));
                 }
+                dataReader.Close();
+                return movielist;
             }
             catch (MySqlException ex)
             {
@@ -80,7 +93,6 @@ namespace CinemaWindows.Database
             {
                 Connection.Close();
             }
-            return Tuple.Create("", "", "");
         }
 
     }
