@@ -49,7 +49,7 @@ namespace CinemaWindows.Database
         }
 
         /// <param name="movieID">given movie id</param>
-        public Tuple<string, string, string> ShowMovieByID(string movieID)
+        public Tuple<string, string, string, string, string, string> ShowMovieByID(string movieID)
         {
             try
             {
@@ -65,15 +65,16 @@ namespace CinemaWindows.Database
                     dataTable.Load(getMovieInfo);
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        Console.Clear();
+                        /*Console.Clear();
                         Console.WriteLine("\nMovie selected: " + row["MovieName"].ToString());
                         Console.WriteLine("Year: " + row["MovieYear"].ToString());
                         Console.WriteLine("Age restriction: " + row["MovieMinimumAge"].ToString() + "+");
                         Console.WriteLine("Actors: " + row["MovieActors"].ToString());
                         Console.WriteLine("Summary: " + row["MovieSummary"].ToString());
+                        */
 
                         // show the times with the id of the movie
-                        return Tuple.Create(row["MovieID"].ToString(), row["MovieName"].ToString(), row["MovieMinimumAge"].ToString());
+                        return Tuple.Create(row["MovieID"].ToString(), row["MovieName"].ToString(), row["MovieMinimumAge"].ToString(), row["MovieYear"].ToString(), row["MovieActors"].ToString(), row["MovieSummary"].ToString());
                     }
                 }
             }
@@ -85,7 +86,7 @@ namespace CinemaWindows.Database
             {
                 Connection.Close();
             }
-            return Tuple.Create("", "", "");
+            return Tuple.Create("", "", "", "", "", "");
         }
     }
 }
