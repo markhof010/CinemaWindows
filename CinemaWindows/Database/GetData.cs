@@ -88,5 +88,43 @@ namespace CinemaWindows.Database
             }
             return Tuple.Create("", "", "", "", "", "");
         }
+
+        public Tuple<List<DateTime>, List<int>, List<int>> GetTime(int MovieID)
+        {
+            List<DateTime> dt = new List<DateTime>();
+            List<int> dateID = new List<int>();
+            List<int> Hall = new List<int>();
+            try
+            {
+                Connection.Open();
+                string IntToCheck = @"SELECT DateTime, DateID, Hall FROM date WHERE MovieID = @MovieID";
+
+                MySqlCommand command = new MySqlCommand(IntToCheck, Connection);
+                MySqlParameter MovieIDParam = new MySqlParameter("@MovieID", MySqlDbType.Int32);
+
+                MovieIDParam.Value = MovieID;
+
+                command.Parameters.Add(MovieIDParam);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    dt.Add(dataReader.GetDateTime("DateTime"));
+                    dateID.Add(dataReader.GetInt32("DateID"));
+                    Hall.Add(dataReader.GetInt32("Hall"));
+                }
+                dataReader.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return Tuple.Create(dt, dateID, Hall);
+        }
     }
 }
