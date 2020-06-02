@@ -56,10 +56,5 @@ namespace CinemaWindows
 			personInfoform.ShowDialog();
 			this.Close();
 		}
-
-		public void showMovies()
-        {
-			
-		}
 	}
 }
