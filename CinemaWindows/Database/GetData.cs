@@ -47,5 +47,41 @@ namespace CinemaWindows.Database
             return HallID;
         }
 
+        public Tuple<string,string,string> ShowMovies()
+        {
+            try
+            {
+                List<int> MovieIDs = new List<int>();
+                Connection.Open();
+                string oString = @"SELECT * from movie";
+                MySqlCommand command = new MySqlCommand(oString, Connection);
+
+                // creating the strings 
+                string movieID;
+                string movieName;
+                string movieYear;
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    movieID = dataReader["MovieID"].ToString();
+                    movieName = dataReader["MovieName"].ToString();
+                    movieYear = dataReader["MovieYear"].ToString();
+
+                    return Tuple.Create(movieID, movieName, movieYear);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return Tuple.Create("", "", "");
+        }
+
     }
 }

@@ -15,11 +15,20 @@ namespace CinemaWindows
 	{
 		public HomeScreen()
 		{
-			GetData GD = new GetData();
+			/*GetData GD = new GetData();
 			int hallid = GD.GetHallID(18);
 			InitializeComponent();
 			Label LB1 = new Label();
 			LB1.Text = hallid.ToString();
+			this.Controls.Add(LB1);*/
+			GetData GD = new GetData();
+
+			InitializeComponent();
+			Label LB1 = new Label();
+			string Title = GD.ShowMovies().Item2;
+			LB1.Text = Title.ToString();
+			LB1.Location = new Point((this.Width / 2) - 177, 120);
+			LB1.AutoSize = true;
 			this.Controls.Add(LB1);
 		}
 
@@ -37,6 +46,11 @@ namespace CinemaWindows
 			PersonInfo personInfoform = new PersonInfo();
 			personInfoform.ShowDialog();
 			this.Close();
+		}
+
+		public void showMovies()
+        {
+			
 		}
 	}
 }
