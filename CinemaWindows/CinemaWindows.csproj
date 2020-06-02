@@ -107,6 +107,12 @@
     <Compile Include="InlogPage.Designer.cs">
       <DependentUpon>InlogPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseMovie.Designer.cs">
+      <DependentUpon>ChooseMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Overview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InlogPage.resx">
       <DependentUpon>InlogPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseMovie.resx">
+      <DependentUpon>ChooseMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>

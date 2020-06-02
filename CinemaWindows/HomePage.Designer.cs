@@ -31,6 +31,7 @@
 			this.loginButon = new System.Windows.Forms.Button();
 			this.PersonInfoButton = new System.Windows.Forms.Button();
 			this.MovieInfo = new System.Windows.Forms.Button();
+			this.ChooseMovieButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// loginButon
@@ -67,11 +68,22 @@
 			this.MovieInfo.UseVisualStyleBackColor = false;
 			this.MovieInfo.Click += new System.EventHandler(this.MovieInfo_Click);
 			// 
+			// ChooseMovieButton
+			// 
+			this.ChooseMovieButton.Location = new System.Drawing.Point(406, 202);
+			this.ChooseMovieButton.Name = "ChooseMovieButton";
+			this.ChooseMovieButton.Size = new System.Drawing.Size(221, 45);
+			this.ChooseMovieButton.TabIndex = 3;
+			this.ChooseMovieButton.Text = "Choose Movie";
+			this.ChooseMovieButton.UseVisualStyleBackColor = true;
+			this.ChooseMovieButton.Click += new System.EventHandler(this.ChooseMovieButton_Click);
+			// 
 			// HomeScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(2266, 1183);
+			this.Controls.Add(this.ChooseMovieButton);
 			this.Controls.Add(this.MovieInfo);
 			this.Controls.Add(this.PersonInfoButton);
 			this.Controls.Add(this.loginButon);
@@ -88,6 +100,7 @@
 		private System.Windows.Forms.Button loginButon;
 		private System.Windows.Forms.Button PersonInfoButton;
 		private System.Windows.Forms.Button MovieInfo;
+		private System.Windows.Forms.Button ChooseMovieButton;
 	}
 }
 

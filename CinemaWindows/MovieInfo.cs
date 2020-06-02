@@ -45,64 +45,53 @@ namespace CinemaWindows
 
 		private void InitializeComponent()
 		{
-			this.MovieIDInput = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.MovieIDsubmitButton = new System.Windows.Forms.Button();
-			this.label2 = new System.Windows.Forms.Label();
+			this.DateAndTimeYesButton = new System.Windows.Forms.Button();
+			this.DateAndTimeNoButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
-			// 
-			// MovieIDInput
-			// 
-			this.MovieIDInput.Location = new System.Drawing.Point(53, 415);
-			this.MovieIDInput.Name = "MovieIDInput";
-			this.MovieIDInput.Size = new System.Drawing.Size(100, 31);
-			this.MovieIDInput.TabIndex = 0;
-			this.MovieIDInput.TextChanged += new System.EventHandler(this.MovieIDInput_TextChanged);
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(48, 385);
+			this.label1.Location = new System.Drawing.Point(247, 456);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(250, 25);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Please type the movie ID";
+			this.label1.Size = new System.Drawing.Size(413, 25);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Would you like to see the date and times?";
 			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
-			// MovieIDsubmitButton
+			// DateAndTimeYesButton
 			// 
-			this.MovieIDsubmitButton.Location = new System.Drawing.Point(53, 494);
-			this.MovieIDsubmitButton.Name = "MovieIDsubmitButton";
-			this.MovieIDsubmitButton.Size = new System.Drawing.Size(100, 34);
-			this.MovieIDsubmitButton.TabIndex = 2;
-			this.MovieIDsubmitButton.Text = "Submit";
-			this.MovieIDsubmitButton.UseVisualStyleBackColor = true;
-			this.MovieIDsubmitButton.Click += new System.EventHandler(this.MovieIDsubmitButton_Click);
+			this.DateAndTimeYesButton.Location = new System.Drawing.Point(287, 514);
+			this.DateAndTimeYesButton.Name = "DateAndTimeYesButton";
+			this.DateAndTimeYesButton.Size = new System.Drawing.Size(133, 53);
+			this.DateAndTimeYesButton.TabIndex = 1;
+			this.DateAndTimeYesButton.Text = "Yes";
+			this.DateAndTimeYesButton.UseVisualStyleBackColor = true;
+			this.DateAndTimeYesButton.Click += new System.EventHandler(this.DateAndTimeYesButton_Click);
 			// 
-			// label2
+			// DateAndTimeNoButton
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(53, 40);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(87, 25);
-			this.label2.TabIndex = 3;
-			this.label2.Text = "Movies:";
-			this.label2.Click += new System.EventHandler(this.label2_Click);
+			this.DateAndTimeNoButton.Location = new System.Drawing.Point(463, 514);
+			this.DateAndTimeNoButton.Name = "DateAndTimeNoButton";
+			this.DateAndTimeNoButton.Size = new System.Drawing.Size(133, 53);
+			this.DateAndTimeNoButton.TabIndex = 2;
+			this.DateAndTimeNoButton.Text = "No";
+			this.DateAndTimeNoButton.UseVisualStyleBackColor = true;
+			this.DateAndTimeNoButton.Click += new System.EventHandler(this.DateAndTimeNoButton_Click);
 			// 
 			// MovieInfo
 			// 
 			this.ClientSize = new System.Drawing.Size(948, 655);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.MovieIDsubmitButton);
+			this.Controls.Add(this.DateAndTimeNoButton);
+			this.Controls.Add(this.DateAndTimeYesButton);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.MovieIDInput);
 			this.Name = "MovieInfo";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
-		private TextBox MovieIDInput;
 		private Label label1;
 
 		private void label1_Click(object sender, EventArgs e)
@@ -110,26 +99,20 @@ namespace CinemaWindows
 
 		}
 
-		private void MovieIDInput_TextChanged(object sender, EventArgs e)
+		private Button DateAndTimeYesButton;
+		private Button DateAndTimeNoButton;
+
+		private void DateAndTimeYesButton_Click(object sender, EventArgs e)
 		{
 
 		}
 
-		private Button MovieIDsubmitButton;
-
-		private void MovieIDsubmitButton_Click(object sender, EventArgs e)
+		private void DateAndTimeNoButton_Click(object sender, EventArgs e)
 		{
-			
-
-
-
-		}
-
-		private Label label2;
-
-		private void label2_Click(object sender, EventArgs e)
-		{
-
+			Hide();
+			HomeScreen form = new HomeScreen();
+			form.ShowDialog();
+			Close();
 		}
 	}
 }

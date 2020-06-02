@@ -46,5 +46,13 @@ namespace CinemaWindows
 			form.ShowDialog();
 			Close();
 		}
+
+		private void ChooseMovieButton_Click(object sender, EventArgs e)
+		{
+			Hide();
+			ChooseMovie form = new ChooseMovie();
+			form.ShowDialog();
+			Close();
+		}
 	}
 }
