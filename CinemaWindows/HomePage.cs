@@ -22,5 +22,13 @@ namespace CinemaWindows
 			InlogPage form = new InlogPage();
 			form.Show();
 		}
+
+		private void MovieInfoButton_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			MovieInformation movieInfoform = new MovieInformation();
+			movieInfoform.ShowDialog();
+			this.Close();
+		}
 	}
 }
