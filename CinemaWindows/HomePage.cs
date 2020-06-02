@@ -38,5 +38,13 @@ namespace CinemaWindows
 			personInfoform.ShowDialog();
 			this.Close();
 		}
+
+		private void MovieInfo_Click(object sender, EventArgs e)
+		{
+			Hide();
+			MovieInfo form = new MovieInfo();
+			form.ShowDialog();
+			Close();
+		}
 	}
 }

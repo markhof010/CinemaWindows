@@ -113,6 +113,12 @@
     <Compile Include="Overview.Designer.cs">
       <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
+    <Compile Include="MovieInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovieInfo.Designer.cs">
+      <DependentUpon>MovieInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MovieInfo.resx">
+      <DependentUpon>MovieInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonInfo.resx">
       <DependentUpon>PersonInfo.cs</DependentUpon>

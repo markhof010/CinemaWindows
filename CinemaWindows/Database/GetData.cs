@@ -7,6 +7,7 @@ using MySql.Data;
 using MySql;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
+using System.Data;
 
 namespace CinemaWindows.Database
 {
@@ -47,5 +48,44 @@ namespace CinemaWindows.Database
             return HallID;
         }
 
+        /// <param name="movieID">given movie id</param>
+        public Tuple<string, string, string> ShowMovieByID(string movieID)
+        {
+            try
+            {
+                Connection.Open();
+                string oString = @"SELECT * from movie WHERE MovieID = @id";
+                MySqlCommand oCmd = new MySqlCommand(oString, Connection);
+                oCmd.Parameters.AddWithValue("@id", movieID);
+
+                using (MySqlDataReader getMovieInfo = oCmd.ExecuteReader())
+                {
+                    DataTable dataTable = new DataTable();
+
+                    dataTable.Load(getMovieInfo);
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\nMovie selected: " + row["MovieName"].ToString());
+                        Console.WriteLine("Year: " + row["MovieYear"].ToString());
+                        Console.WriteLine("Age restriction: " + row["MovieMinimumAge"].ToString() + "+");
+                        Console.WriteLine("Actors: " + row["MovieActors"].ToString());
+                        Console.WriteLine("Summary: " + row["MovieSummary"].ToString());
+
+                        // show the times with the id of the movie
+                        return Tuple.Create(row["MovieID"].ToString(), row["MovieName"].ToString(), row["MovieMinimumAge"].ToString());
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return Tuple.Create("", "", "");
+        }
     }
 }
