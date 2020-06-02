@@ -38,8 +38,6 @@ namespace CinemaWindows
 
 			Tuple<List<DateTime>, List<int>, List<int>> times = GD.GetTime(MovieId);
 
-			
-
 			for (int i = 0; i < times.Item1.Count; i++)
 			{
 				Label LB2 = new Label();
