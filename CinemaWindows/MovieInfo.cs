@@ -16,21 +16,15 @@ namespace CinemaWindows
 {
 	public partial class MovieInfo : Form
 	{
-		public MovieInfo()
+		public MovieInfo(string movieId)
 		{
-			
-			
-		}
 
-		public void MovieInformation(string movieId)
-		{
 			InitializeComponent();
 			GetData GD = new GetData();
 
 			this.AutoScroll = true;
 			int place = 120;
 			int place2 = 250;
-			//MessageBox.Show("Hello, world."+ movieId);
 			Tuple<string, string, string, string, string, string> movieInfo = GD.ShowMovieByID(movieId);
 
 			Label LB1 = new Label();
@@ -56,6 +50,11 @@ namespace CinemaWindows
 				place2 += 30;
 
 			}
+		}
+
+		public void MovieInformation(string movieId)
+		{
+			
 		}
 
 

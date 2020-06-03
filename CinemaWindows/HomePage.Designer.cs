@@ -30,7 +30,6 @@
 		{
 			this.loginButon = new System.Windows.Forms.Button();
 			this.PersonInfoButton = new System.Windows.Forms.Button();
-			this.MovieInfo = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// loginButon
@@ -56,23 +55,11 @@
 			this.PersonInfoButton.UseVisualStyleBackColor = true;
 			this.PersonInfoButton.Click += new System.EventHandler(this.PersonInfoButton_Click);
 			// 
-			// MovieInfo
-			// 
-			this.MovieInfo.BackColor = System.Drawing.SystemColors.InactiveBorder;
-			this.MovieInfo.Location = new System.Drawing.Point(406, 319);
-			this.MovieInfo.Name = "MovieInfo";
-			this.MovieInfo.Size = new System.Drawing.Size(214, 44);
-			this.MovieInfo.TabIndex = 2;
-			this.MovieInfo.Text = "Movie Info";
-			this.MovieInfo.UseVisualStyleBackColor = false;
-			this.MovieInfo.Click += new System.EventHandler(this.MovieInfo_Click);
-			// 
 			// HomeScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(2266, 1183);
-			this.Controls.Add(this.MovieInfo);
 			this.Controls.Add(this.PersonInfoButton);
 			this.Controls.Add(this.loginButon);
 			this.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -87,7 +74,6 @@
 
 		private System.Windows.Forms.Button loginButon;
 		private System.Windows.Forms.Button PersonInfoButton;
-		private System.Windows.Forms.Button MovieInfo;
 	}
 }
 

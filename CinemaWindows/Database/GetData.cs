@@ -8,6 +8,7 @@ using MySql;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
 using System.Data;
+using System.Windows.Forms;
 
 namespace CinemaWindows.Database
 {
@@ -53,6 +54,7 @@ namespace CinemaWindows.Database
         {
             try
             {
+
                 Connection.Open();
                 string oString = @"SELECT * from movie WHERE MovieID = @id";
                 MySqlCommand oCmd = new MySqlCommand(oString, Connection);

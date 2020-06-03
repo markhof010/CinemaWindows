@@ -32,9 +32,13 @@ namespace CinemaWindows
 				movieLabel.Text += "\nDuration: " + movie.Item3 + " minutes";
 				movieLabel.Text += "\nAge qualification: " + movie.Item5 +"+";
 				
-				MovieInfo MI = new MovieInfo();
+				MovieInfo MI = new MovieInfo(movie.Item1);
+				
 
-				movieLabel.Click += (s, p) => { MI.MovieInformation(movie.Item1); };
+				movieLabel.Click += (s, p) => {
+					Hide();
+					MI.ShowDialog();
+				};
 			
 				movieLabel.Location = new Point(0 + x, 120);
 				movieLabel.AutoSize = false;
@@ -59,14 +63,6 @@ namespace CinemaWindows
 			PersonInfo personInfoform = new PersonInfo();
 			personInfoform.ShowDialog();
 			this.Close();
-		}
-
-		private void MovieInfo_Click(object sender, EventArgs e)
-		{
-			Hide();
-			MovieInfo form = new MovieInfo();
-			form.ShowDialog();
-			Close();
 		}
 	}
 }
