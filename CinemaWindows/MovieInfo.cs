@@ -18,19 +18,17 @@ namespace CinemaWindows
 	{
 		public MovieInfo(string movieId)
 		{
-
 			InitializeComponent();
 			GetData GD = new GetData();
 
 			this.AutoScroll = true;
 			int place = 120;
-			int place2 = 250;
+			int place2 = 200;
 			Tuple<string, string, string, string, string, string> movieInfo = GD.ShowMovieByID(movieId);
 
 			Label LB1 = new Label();
 			LB1.Text = "Movie selected: " + movieInfo.Item2 + "\nYear: " + movieInfo.Item4 + "\nAge restriction:  " + movieInfo.Item3 + "\nActors:  " + movieInfo.Item5 + "\nSummary:  " + movieInfo.Item6;
-			LB1.Location = new Point((this.Width / 4) - 100, place);
-			LB1.Font = new Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			LB1.Location = new Point(50, place);
 			LB1.AutoSize = true;
 			this.Controls.Add(LB1);
 
@@ -41,25 +39,14 @@ namespace CinemaWindows
 			for (int i = 0; i < times.Item1.Count; i++)
 			{
 				Label LB2 = new Label();
-				LB2.Location = new Point((this.Width / 4) - 100, place2);
-				LB2.Font = new Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+				LB2.Location = new Point(50, place2);
 				LB2.AutoSize = true;
 				LB2.Text = "[" + (i + 1) + "] " + times.Item1[i].ToString("HH:mm dd/MM/yyyy");
 				this.Controls.Add(LB2);
 
-				place2 += 30;
-
+				place2 += 20;
 			}
 		}
-
-		public void MovieInformation(string movieId)
-		{
-			
-		}
-
-
-
-
 
 		private void InitializeComponent()
 		{
@@ -71,8 +58,6 @@ namespace CinemaWindows
 			this.Name = "MovieInfo";
 			this.ResumeLayout(false);
 			this.PerformLayout();
-
 		}
-
 	}
 }

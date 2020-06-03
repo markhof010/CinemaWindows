@@ -54,7 +54,6 @@ namespace CinemaWindows.Database
         {
             try
             {
-
                 Connection.Open();
                 string oString = @"SELECT * from movie WHERE MovieID = @id";
                 MySqlCommand oCmd = new MySqlCommand(oString, Connection);
@@ -160,6 +159,5 @@ namespace CinemaWindows.Database
                 Connection.Close();
             }
         }
-
     }
 }

@@ -23,7 +23,6 @@ namespace CinemaWindows
 			foreach(Tuple<string, string, string, string, string> movie in GD.ShowMovies())
 			{
 				Label movieLabel = new Label();
-
 				movieLabel.Width = 150;
 				movieLabel.Height = 60;
 				movieLabel.BorderStyle = BorderStyle.FixedSingle;
@@ -31,12 +30,9 @@ namespace CinemaWindows
 				movieLabel.Text += "\nGenre: " + movie.Item4;
 				movieLabel.Text += "\nDuration: " + movie.Item3 + " minutes";
 				movieLabel.Text += "\nAge qualification: " + movie.Item5 +"+";
-				
 				MovieInfo MI = new MovieInfo(movie.Item1);
-				
 
 				movieLabel.Click += (s, p) => {
-					Hide();
 					MI.ShowDialog();
 				};
 			
