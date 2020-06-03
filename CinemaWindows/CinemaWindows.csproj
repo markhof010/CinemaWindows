@@ -93,6 +93,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseSeats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseSeats.Designer.cs">
+      <DependentUpon>ChooseSeats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\Connecter.cs" />
     <Compile Include="Database\GetData.cs" />
     <Compile Include="HomePage.cs">
@@ -121,6 +127,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChooseSeats.resx">
+      <DependentUpon>ChooseSeats.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>

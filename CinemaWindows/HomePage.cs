@@ -21,6 +21,8 @@ namespace CinemaWindows
 			Label LB1 = new Label();
 			LB1.Text = hallid.ToString();
 			this.Controls.Add(LB1);
+			ChooseSeats chooseseat = new ChooseSeats();
+			chooseseat.Show();
 		}
 
 		private void loginButon_Click(object sender, EventArgs e)
