@@ -31,7 +31,11 @@ namespace CinemaWindows
 				movieLabel.Text += "\nGenre: " + movie.Item4;
 				movieLabel.Text += "\nDuration: " + movie.Item3 + " minutes";
 				movieLabel.Text += "\nAge qualification: " + movie.Item5 +"+";
+				
+				MovieInfo MI = new MovieInfo();
 
+				movieLabel.Click += (s, p) => { MI.MovieInformation(movie.Item1); };
+			
 				movieLabel.Location = new Point(0 + x, 120);
 				movieLabel.AutoSize = false;
 
@@ -64,6 +68,5 @@ namespace CinemaWindows
 			form.ShowDialog();
 			Close();
 		}
-
 	}
 }

@@ -18,14 +18,20 @@ namespace CinemaWindows
 	{
 		public MovieInfo()
 		{
+			
+			
+		}
+
+		public void MovieInformation(string movieId)
+		{
 			InitializeComponent();
 			GetData GD = new GetData();
 
 			this.AutoScroll = true;
 			int place = 120;
 			int place2 = 250;
-
-			Tuple<string, string, string, string, string, string> movieInfo = GD.ShowMovieByID("1");
+			//MessageBox.Show("Hello, world."+ movieId);
+			Tuple<string, string, string, string, string, string> movieInfo = GD.ShowMovieByID(movieId);
 
 			Label LB1 = new Label();
 			LB1.Text = "Movie selected: " + movieInfo.Item2 + "\nYear: " + movieInfo.Item4 + "\nAge restriction:  " + movieInfo.Item3 + "\nActors:  " + movieInfo.Item5 + "\nSummary:  " + movieInfo.Item6;
@@ -52,7 +58,10 @@ namespace CinemaWindows
 			}
 		}
 
-		
+
+
+
+
 		private void InitializeComponent()
 		{
 			// 
