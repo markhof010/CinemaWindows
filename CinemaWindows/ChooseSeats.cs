@@ -14,7 +14,7 @@ namespace CinemaWindows
 {
     public partial class ChooseSeats : Form
     {
-        public ChooseSeats()
+        public ChooseSeats(int hallNumber, int amount)
         {
             InitializeComponent();
             Bitmap Hall = new Bitmap(1240, 650);
