@@ -23,14 +23,13 @@ namespace CinemaWindows
 			for (int i = 0; i < GD.GetProducts().Count; i++)
 			{			
 				Label LB1 = new Label();
-				LB1.Text = "(" + GD.GetProducts()[i].Item1 + ") " + GD.GetProducts()[i].Item2 + "    €" + GD.GetProducts()[i].Item3.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+				LB1.Text = GD.GetProducts()[i].Item2 + "    €" + GD.GetProducts()[i].Item3.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
 				LB1.Location = new Point((this.Width / 2) - 100, place);
 				LB1.Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 				LB1.AutoSize = true;
 				this.Controls.Add(LB1);
 
 				place += 20;
-				//Console.WriteLine("(" + dataReader["ItemID"] + ") " + dataReader["ItemName"] + "    €" + test.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture));
 			}
 			
 		}

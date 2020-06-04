@@ -66,7 +66,6 @@ namespace CinemaWindows.Database
 					double ItemPrice = dataReader.GetDouble("Price");
 
                     products.Add(Tuple.Create(ItemID, ItemName, ItemPrice));
-                    //Console.WriteLine("(" + dataReader["ItemID"] + ") " + dataReader["ItemName"] + "    €" + test.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture));
                 }
 
                 dataReader.Close();
