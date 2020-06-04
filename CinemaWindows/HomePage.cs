@@ -16,11 +16,7 @@ namespace CinemaWindows
 		public HomeScreen()
 		{
 			GetData GD = new GetData();
-			int hallid = GD.GetHallID(18);
 			InitializeComponent();
-			Label LB1 = new Label();
-			LB1.Text = hallid.ToString();
-			this.Controls.Add(LB1);
 		}
 
 		private void loginButon_Click(object sender, EventArgs e)
@@ -36,6 +32,22 @@ namespace CinemaWindows
 			this.Hide();
 			PersonInfo personInfoform = new PersonInfo();
 			personInfoform.ShowDialog();
+			this.Close();
+		}
+
+		private void MenuBTN_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			RestaurantMenu form = new RestaurantMenu();
+			form.ShowDialog();
+			this.Close();
+		}
+
+		private void ContactBTN_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			Contact form = new Contact();
+			form.ShowDialog();
 			this.Close();
 		}
 	}
