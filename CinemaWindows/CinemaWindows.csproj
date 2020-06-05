@@ -93,11 +93,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPage\AddMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPage\AddMovie.Designer.cs">
+      <DependentUpon>AddMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Contact.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Contact.Designer.cs">
       <DependentUpon>Contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AddData.cs" />
+    <Compile Include="AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPage.Designer.cs">
+      <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
     <Compile Include="FAQ.cs">
       <SubType>Form</SubType>
@@ -145,8 +158,14 @@
     <Compile Include="TicketCode.Designer.cs">
       <DependentUpon>TicketCode.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminPage\AddMovie.resx">
+      <DependentUpon>AddMovie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contact.resx">
       <DependentUpon>Contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPage.resx">
+      <DependentUpon>AdminPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FAQ.resx">
       <DependentUpon>FAQ.cs</DependentUpon>
