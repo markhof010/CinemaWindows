@@ -31,6 +31,7 @@
 			this.loginButon = new System.Windows.Forms.Button();
 			this.MenuBTN = new System.Windows.Forms.Button();
 			this.ContactBTN = new System.Windows.Forms.Button();
+			this.TicketCodeBTN = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// loginButon
@@ -65,11 +66,22 @@
 			this.ContactBTN.UseVisualStyleBackColor = true;
 			this.ContactBTN.Click += new System.EventHandler(this.ContactBTN_Click);
 			// 
+			// TicketCodeBTN
+			// 
+			this.TicketCodeBTN.Location = new System.Drawing.Point(841, 396);
+			this.TicketCodeBTN.Name = "TicketCodeBTN";
+			this.TicketCodeBTN.Size = new System.Drawing.Size(141, 30);
+			this.TicketCodeBTN.TabIndex = 3;
+			this.TicketCodeBTN.Text = "TicketCode";
+			this.TicketCodeBTN.UseVisualStyleBackColor = true;
+			this.TicketCodeBTN.Click += new System.EventHandler(this.TicketCodeBTN_Click);
+			// 
 			// HomeScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1700, 946);
+			this.Controls.Add(this.TicketCodeBTN);
 			this.Controls.Add(this.ContactBTN);
 			this.Controls.Add(this.MenuBTN);
 			this.Controls.Add(this.loginButon);
@@ -86,6 +98,7 @@
 		private System.Windows.Forms.Button loginButon;
 		private System.Windows.Forms.Button MenuBTN;
 		private System.Windows.Forms.Button ContactBTN;
+		private System.Windows.Forms.Button TicketCodeBTN;
 	}
 }
 

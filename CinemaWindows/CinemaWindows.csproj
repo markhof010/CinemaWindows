@@ -139,6 +139,12 @@
     <Compile Include="RestaurantMenu.Designer.cs">
       <DependentUpon>RestaurantMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="TicketCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicketCode.Designer.cs">
+      <DependentUpon>TicketCode.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Contact.resx">
       <DependentUpon>Contact.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +174,9 @@
     </Compile>
     <EmbeddedResource Include="RestaurantMenu.resx">
       <DependentUpon>RestaurantMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketCode.resx">
+      <DependentUpon>TicketCode.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
