@@ -41,8 +41,12 @@ namespace CinemaWindows
 				Label LB2 = new Label();
 				LB2.Location = new Point(50, place2);
 				LB2.AutoSize = true;
+				LB2.BorderStyle = BorderStyle.FixedSingle;
+
 				LB2.Text = "[" + (i + 1) + "] " + times.Item1[i].ToString("HH:mm dd/MM/yyyy");
 				this.Controls.Add(LB2);
+
+				LB2.Click += HomeScreenBTN_Click;
 
 				place2 += 20;
 			}
@@ -58,6 +62,14 @@ namespace CinemaWindows
 			this.Name = "MovieInfo";
 			this.ResumeLayout(false);
 			this.PerformLayout();
+		}
+
+		private void HomeScreenBTN_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			HomeScreen form = new HomeScreen();
+			form.ShowDialog();
+			this.Close();
 		}
 	}
 }
