@@ -93,10 +93,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminPage\AddMovie.cs">
+    <Compile Include="AdminPageFolder\AddMovie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminPage\AddMovie.Designer.cs">
+    <Compile Include="AdminPageFolder\AddMovie.Designer.cs">
       <DependentUpon>AddMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="Contact.cs">
@@ -158,7 +158,7 @@
     <Compile Include="TicketCode.Designer.cs">
       <DependentUpon>TicketCode.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminPage\AddMovie.resx">
+    <EmbeddedResource Include="AdminPageFolder\AddMovie.resx">
       <DependentUpon>AddMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contact.resx">
