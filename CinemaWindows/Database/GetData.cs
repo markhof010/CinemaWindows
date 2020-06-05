@@ -135,40 +135,6 @@ namespace CinemaWindows.Database
                 string movieGenre;
                 string movieAge;
 
-        public List<Tuple<int, string, double>> GetProducts()
-        {
-            List<Tuple<int, string, double>> products = new List<Tuple<int, string, double>>();
-
-			try
-			{
-				Connection.Open();
-				string stringToDisplay = @"SELECT * FROM restaurantitems";
-
-                MySqlCommand command = new MySqlCommand(stringToDisplay, Connection);
-
-                MySqlDataReader dataReader = command.ExecuteReader();
-				while (dataReader.Read())
-				{
-                    int ItemID = dataReader.GetInt32("ItemID");
-                    string ItemName = dataReader["ItemName"].ToString();
-					double ItemPrice = dataReader.GetDouble("Price");
-
-                    products.Add(Tuple.Create(ItemID, ItemName, ItemPrice));
-                }
-
-                dataReader.Close();
-                return products;
-			}
-			catch (MySqlException ex)
-			{
-
-				throw;
-			}
-			finally
-			{
-				Connection.Close();
-			}
-        }
                 MySqlDataReader dataReader = command.ExecuteReader();
 
                 while (dataReader.Read())
@@ -186,6 +152,42 @@ namespace CinemaWindows.Database
             }
             catch (MySqlException ex)
             {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+
+    public List<Tuple<int, string, double>> GetProducts()
+        {
+            List<Tuple<int, string, double>> products = new List<Tuple<int, string, double>>();
+
+            try
+            {
+                Connection.Open();
+                string stringToDisplay = @"SELECT * FROM restaurantitems";
+
+                MySqlCommand command = new MySqlCommand(stringToDisplay, Connection);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    int ItemID = dataReader.GetInt32("ItemID");
+                    string ItemName = dataReader["ItemName"].ToString();
+                    double ItemPrice = dataReader.GetDouble("Price");
+
+                    products.Add(Tuple.Create(ItemID, ItemName, ItemPrice));
+                }
+
+                dataReader.Close();
+                return products;
+            }
+            catch (MySqlException ex)
+            {
+
                 throw;
             }
             finally
