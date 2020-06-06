@@ -109,6 +109,7 @@
 			this.ReleaseInput.Size = new System.Drawing.Size(100, 26);
 			this.ReleaseInput.TabIndex = 6;
 			this.ReleaseInput.TextChanged += new System.EventHandler(this.ReleaseInput_TextChanged);
+			this.ReleaseInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReleaseInput_KeyDown);
 			this.ReleaseInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ReleaseInput_KeyPress);
 			// 
 			// AgeResLB
@@ -127,6 +128,8 @@
 			this.AgeResInput.Size = new System.Drawing.Size(100, 26);
 			this.AgeResInput.TabIndex = 8;
 			this.AgeResInput.TextChanged += new System.EventHandler(this.AgeResInput_TextChanged);
+			this.AgeResInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AgeResInput_KeyDown);
+			this.AgeResInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AgeResInput_KeyPress);
 			// 
 			// SumLB
 			// 
@@ -171,6 +174,8 @@
 			this.DurationInput.Size = new System.Drawing.Size(100, 26);
 			this.DurationInput.TabIndex = 13;
 			this.DurationInput.TextChanged += new System.EventHandler(this.DurationInput_TextChanged);
+			this.DurationInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DurationInput_KeyDown);
+			this.DurationInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DurationInput_KeyPress);
 			// 
 			// GenreLB
 			// 
