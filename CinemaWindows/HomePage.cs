@@ -54,7 +54,7 @@ namespace CinemaWindows
 		private void TicketCodeBTN_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-			TicketCode form = new TicketCode();
+			AddTime form = new AddTime("Transformers", 90);
 			form.ShowDialog();
 			this.Close();
 		}

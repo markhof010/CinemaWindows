@@ -29,8 +29,8 @@ namespace CinemaWindows
 		private void AdminPageBTN_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-			//AdminPage form = new AdminPage();
-			//form.ShowDialog();
+			AdminPage form = new AdminPage();
+			form.ShowDialog();
 			this.Close();
 		}
 	}

@@ -1,4 +1,4 @@
-﻿using CinemaWindows.AdminPage;
+﻿using CinemaWindows.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

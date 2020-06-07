@@ -81,5 +81,73 @@ namespace CinemaWindows.Database
 				Connection.Close();
 			}
         }
+
+        public int GetMovieID(string Title)
+        {
+            int movieID = -1;
+            try
+            {
+                Connection.Open();
+                string IntToCheck = @"SELECT MovieID FROM movie WHERE MovieName = @MovieName";
+
+                MySqlCommand command = new MySqlCommand(IntToCheck, Connection);
+                MySqlParameter MovieNameParam = new MySqlParameter("@MovieName", MySqlDbType.VarChar);
+
+                MovieNameParam.Value = Title;
+
+                command.Parameters.Add(MovieNameParam);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    movieID = dataReader.GetInt32("MovieID");
+                }
+                dataReader.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return movieID;
+        }
+
+        public Tuple<List<DateTime>, List<int>, List<DateTime>> GetAllDates()
+        {
+            List<DateTime> StartTime = new List<DateTime>();
+            List<int> Hall = new List<int>();
+            List<DateTime> Endtime = new List<DateTime>();
+            try
+            {
+                Connection.Open();
+                string IntToCheck = @"SELECT date.DateTime, date.hall, movie.MovieDuration FROM Cinema.date LEFT JOIN Cinema.movie ON date.MovieID = movie.MovieID";
+
+                MySqlCommand command = new MySqlCommand(IntToCheck, Connection);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    StartTime.Add(dataReader.GetDateTime("DateTime"));
+                    Hall.Add(dataReader.GetInt32("Hall"));
+                    Endtime.Add(dataReader.GetDateTime("DateTime").AddMinutes(dataReader.GetInt32("MovieDuration")));
+                }
+                dataReader.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return Tuple.Create(StartTime, Hall, Endtime);
+        }
     }
 }

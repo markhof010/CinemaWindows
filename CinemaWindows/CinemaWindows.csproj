@@ -93,11 +93,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminPageFolder\AddMovie.cs">
+    <Compile Include="AddMovie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminPageFolder\AddMovie.Designer.cs">
+    <Compile Include="AddMovie.Designer.cs">
       <DependentUpon>AddMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTime.Designer.cs">
+      <DependentUpon>AddTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Contact.cs">
       <SubType>Form</SubType>
@@ -158,8 +164,11 @@
     <Compile Include="TicketCode.Designer.cs">
       <DependentUpon>TicketCode.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminPageFolder\AddMovie.resx">
+    <EmbeddedResource Include="AddMovie.resx">
       <DependentUpon>AddMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTime.resx">
+      <DependentUpon>AddTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contact.resx">
       <DependentUpon>Contact.cs</DependentUpon>

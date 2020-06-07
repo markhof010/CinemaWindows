@@ -1,5 +1,4 @@
-﻿using CinemaWindows.Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CinemaWindows.Database;
 
-namespace CinemaWindows.AdminPage
+namespace CinemaWindows
 {
 	public partial class AddMovie : Form
 	{
@@ -19,13 +19,14 @@ namespace CinemaWindows.AdminPage
 		public AddMovie()
 		{
 			InitializeComponent();
+			ReleasedateLB.Text += $"(between 1800 and {DateTime.Now.ToString("yyyy")})";
 		}
 
 		private void ReturnBTN_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-			//AdminPage form = new AdminPage();
-			//form.ShowDialog();
+			AdminPage form = new AdminPage();
+			form.ShowDialog();
 			this.Close();
 		}
 
@@ -49,7 +50,24 @@ namespace CinemaWindows.AdminPage
 			int Duration = Int32.Parse(DurationInput.Text);
 			string Genre = GenreInput.Text;
 
-			AD.InsertMovie(Name, Year, MinimumAge, Summary, Actors, Duration, Genre);
+			if (Year <= 1800 || Year > Convert.ToInt32((DateTime.Now.ToString("yyyy"))))
+			{
+				ReleaseInput.Clear();
+				MessageBox.Show("The year of release was not valid. Please try again", "Invalid year of release", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			else if (MinimumAge < 0 || MinimumAge > 99)
+			{
+				AgeResInput.Clear();
+				MessageBox.Show("The minimum age was not valid. Please try again", "Invalid minimum age", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			else
+			{
+				AD.InsertMovie(Name, Year, MinimumAge, Summary, Actors, Duration, Genre);
+				this.Hide();
+				AddTime form = new AddTime(Name, Duration);
+				form.ShowDialog();
+				this.Close();
+			}			
 		}
 
 		private void MovieNameInput_TextChanged(object sender, EventArgs e)

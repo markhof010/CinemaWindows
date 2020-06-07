@@ -60,7 +60,46 @@ namespace CinemaWindows.Database
 			}
 		}
 
+		public void CreateDateTime(DateTime DT, string Title, int Hall)
+		{
+			try
+			{
+				Connection.Open();
 
+				GetData GD = new GetData();
+
+				string stringToInsert = @"INSERT INTO date (MovieID, DateTime, Hall) VALUES (@MovieID, @DateTime, @Hall)";
+
+				MySqlCommand command = new MySqlCommand(stringToInsert, Connection);
+				MySqlParameter MovieIDParam = new MySqlParameter("@MovieID", MySqlDbType.Double);
+				MySqlParameter DTParam = new MySqlParameter("@DateTime", MySqlDbType.DateTime);
+				MySqlParameter HallParam = new MySqlParameter("@Hall", MySqlDbType.Int32);
+
+				MovieIDParam.Value = GD.GetMovieID(Title);
+				DTParam.Value = DT;
+				HallParam.Value = Hall;
+
+				command.Parameters.Add(MovieIDParam);
+				command.Parameters.Add(DTParam);
+				command.Parameters.Add(HallParam);
+
+				command.Prepare();
+				command.ExecuteNonQuery();
+			}
+			catch (MySqlException ex)
+			{
+
+				if (ex.Message.Contains("Duplicate"))
+				{
+					
+				}
+				//throw;
+			}
+			finally
+			{
+				Connection.Close();
+			}
+		}
 
 	}
 }
