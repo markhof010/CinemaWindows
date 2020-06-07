@@ -36,10 +36,10 @@
 			// loginButon
 			// 
 			this.loginButon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.loginButon.Location = new System.Drawing.Point(1569, 18);
-			this.loginButon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.loginButon.Location = new System.Drawing.Point(196, 22);
+			this.loginButon.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
 			this.loginButon.Name = "loginButon";
-			this.loginButon.Size = new System.Drawing.Size(112, 35);
+			this.loginButon.Size = new System.Drawing.Size(149, 44);
 			this.loginButon.TabIndex = 0;
 			this.loginButon.Text = "login";
 			this.loginButon.UseVisualStyleBackColor = true;
@@ -47,9 +47,10 @@
 			// 
 			// MenuBTN
 			// 
-			this.MenuBTN.Location = new System.Drawing.Point(12, 18);
+			this.MenuBTN.Location = new System.Drawing.Point(16, 22);
+			this.MenuBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.MenuBTN.Name = "MenuBTN";
-			this.MenuBTN.Size = new System.Drawing.Size(112, 35);
+			this.MenuBTN.Size = new System.Drawing.Size(149, 44);
 			this.MenuBTN.TabIndex = 1;
 			this.MenuBTN.Text = "Menu";
 			this.MenuBTN.UseVisualStyleBackColor = true;
@@ -57,9 +58,10 @@
 			// 
 			// ContactBTN
 			// 
-			this.ContactBTN.Location = new System.Drawing.Point(1569, 899);
+			this.ContactBTN.Location = new System.Drawing.Point(372, 22);
+			this.ContactBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.ContactBTN.Name = "ContactBTN";
-			this.ContactBTN.Size = new System.Drawing.Size(112, 35);
+			this.ContactBTN.Size = new System.Drawing.Size(149, 44);
 			this.ContactBTN.TabIndex = 2;
 			this.ContactBTN.Text = "Contact";
 			this.ContactBTN.UseVisualStyleBackColor = true;
@@ -67,14 +69,14 @@
 			// 
 			// HomeScreen
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1700, 946);
+			this.ClientSize = new System.Drawing.Size(2267, 1182);
 			this.Controls.Add(this.ContactBTN);
 			this.Controls.Add(this.MenuBTN);
 			this.Controls.Add(this.loginButon);
 			this.ImeMode = System.Windows.Forms.ImeMode.Disable;
-			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
 			this.Name = "HomeScreen";
 			this.Text = "Home Screen";
 			this.ResumeLayout(false);
