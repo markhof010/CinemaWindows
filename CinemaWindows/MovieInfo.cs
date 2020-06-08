@@ -42,21 +42,19 @@ namespace CinemaWindows
 				LB2.Location = new Point(50, place2);
 				LB2.AutoSize = true;
 				LB2.BorderStyle = BorderStyle.FixedSingle;
+				LB2.Cursor = Cursors.Hand;
 
-				LB2.Text = "[" + (i + 1) + "] " + times.Item1[i].ToString("HH:mm dd/MM/yyyy");
+				LB2.Text = times.Item1[i].ToString("HH:mm dd/MM/yyyy");
 				this.Controls.Add(LB2);
-
-				LB2.Click += HomeScreenBTN_Click;
-
+				LB2.Click += (sender, EventArgs) => { LB2_Click(sender, EventArgs, movieId); };
+				LB2.MouseEnter += new EventHandler(mouseEnter);
+				LB2.MouseLeave += new EventHandler(mouseLeave);
 				place2 += 20;
 			}
 		}
 
 		private void InitializeComponent()
 		{
-			// 
-			// MovieInfo
-			// 
 			this.ClientSize = new System.Drawing.Size(948, 655);
 	
 			this.Name = "MovieInfo";
@@ -70,6 +68,47 @@ namespace CinemaWindows
 			HomeScreen form = new HomeScreen();
 			form.ShowDialog();
 			this.Close();
+		}
+
+		public void LB2_Click(object sender, EventArgs e, string movieId)
+        {
+			GetData GD = new GetData();
+			Tuple<string, string, string, string, string, string> movieInfo = GD.ShowMovieByID(movieId);
+
+			string message;
+			string title;
+
+			message = "Are you over " + movieInfo.Item3 + " years old?";
+			title = "Age check";
+			DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+			if (result == DialogResult.No)
+			{
+				message = "You're not old enough for this movie\n\nYou can only go if you take someone who is 18 years or older with you\n\nMake sure that person reserves the tickets";
+				MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+				this.Hide();
+				HomeScreen form = new HomeScreen();
+				form.ShowDialog();
+				this.Close();
+			}
+			else
+            {
+				// code to reserve tickets here
+            }
+		}
+		private void mouseEnter(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.Fixed3D;
+			theLabel.BackColor = Color.FromKnownColor(KnownColor.AliceBlue);
+		}
+
+		private void mouseLeave(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.FixedSingle;
+			theLabel.BackColor = Control.DefaultBackColor;
 		}
 	}
 }
