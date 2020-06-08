@@ -104,10 +104,6 @@ namespace CinemaWindows
                     Color color = Color.FromArgb(250, 0, 0);
                     if (!label.BackColor.Equals(color))
                     {
-                        for (int i = 0; i < length; i++)
-                        {
-
-                        }
                         //Add the new window with:
                         //Name
                         //SeatAmount
