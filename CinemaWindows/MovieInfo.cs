@@ -42,24 +42,19 @@ namespace CinemaWindows
 				LB2.Location = new Point(50, place2);
 				LB2.AutoSize = true;
 				LB2.BorderStyle = BorderStyle.FixedSingle;
+				LB2.Cursor = Cursors.Hand;
 
-				LB2.Text = "[" + (i + 1) + "] " + times.Item1[i].ToString("HH:mm dd/MM/yyyy");
+				LB2.Text = times.Item1[i].ToString("HH:mm dd/MM/yyyy");
 				this.Controls.Add(LB2);
-
-				//LB2.Click += HomeScreenBTN_Click;
-				//LB2.Click += ReserveMovie(string movieId, string timesId);
-				
 				LB2.Click += (sender, EventArgs) => { LB2_Click(sender, EventArgs, movieId); };
-
+				LB2.MouseEnter += new EventHandler(mouseEnter);
+				LB2.MouseLeave += new EventHandler(mouseLeave);
 				place2 += 20;
 			}
 		}
 
 		private void InitializeComponent()
 		{
-			// 
-			// MovieInfo
-			// 
 			this.ClientSize = new System.Drawing.Size(948, 655);
 	
 			this.Name = "MovieInfo";
@@ -85,7 +80,7 @@ namespace CinemaWindows
 
 			message = "Are you over " + movieInfo.Item3 + " years old?";
 			title = "Age check";
-			var result = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 			if (result == DialogResult.No)
 			{
@@ -101,6 +96,19 @@ namespace CinemaWindows
             {
 				// code to reserve tickets here
             }
+		}
+		private void mouseEnter(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.Fixed3D;
+			theLabel.BackColor = Color.FromKnownColor(KnownColor.AliceBlue);
+		}
+
+		private void mouseLeave(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.FixedSingle;
+			theLabel.BackColor = Control.DefaultBackColor;
 		}
 	}
 }
