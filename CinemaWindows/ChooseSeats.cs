@@ -9,163 +9,113 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using CinemaWindows.Database;
+using System.Windows.Input;
 
 namespace CinemaWindows
 {
     public partial class ChooseSeats : Form
     {
+        public List<Tuple<Point, Size,Color>> AllSeats { get; set; }
+
+        public Bitmap Hall { get; set; }
+
         public ChooseSeats()
         {
             InitializeComponent();
-            Bitmap Hall = new Bitmap(1240, 650);
-            Draw(Hall);
-            HallPictureBox.Image = Hall;
+            AllSeats = new List<Tuple<Point, Size,Color>>();
+            GetData data = new GetData();
+            Tuple<int, int, int, int, double, double, double> part1 = data.GetHallInfo(1);
+            List<Tuple<double, int, int, string, bool>> part2 = data.GetSeat(1);
+            GetHall(part1, part2, Hall);
+            DrawHall(AllSeats);
         }
 
-        public void drawBackground(Bitmap map)
+        public void GetHall(Tuple<int, int, int, int, double, double, double> HallInfo, List<Tuple<double, int, int, string, bool>> Seats, Bitmap map)
         {
-            using (Graphics g = Graphics.FromImage(map))
-            {
-                Color customColor = Color.FromArgb(50, 50, 50);
-                g.FillRectangle(new SolidBrush(customColor),0,0,1240,650);
-                Console.WriteLine(g.PageScale);
-            }
-        }
-
-        public void drawSeats(Bitmap map,int hallheigth, int hallwidth)
-        {
-            using (Graphics g = Graphics.FromImage(map))
-            {
-                for (int y = 0; y < hallheigth; y++)
+                for (int i = 0; i < HallInfo.Item1; i++)
                 {
-                    for (int x = 0; x < hallwidth; x++)
+                    for (int j = 0; j < HallInfo.Item2; j++)
                     {
-                        Color colorblue = Color.FromArgb(0, 0, 250);
-                        Rectangle rect = new Rectangle(25 + (x * 100), 25 + (y * 40), 95, 35);
-                        g.FillRectangle(new SolidBrush(colorblue),rect);
-                    }
-                }
-            }
-        }
-
-        private void Draw(Bitmap map)
-        {
-            drawBackground(map);
-            drawSeats(map,14,12);
-        }
-
-        public static void showHall(Tuple<int, int, int, int, double, double, double> HallInfo, List<Tuple<double, int, int, string, bool>> Seats)
-        {
-            Bitmap image = new Bitmap(1250, 650);
-            
-
-            string XasNumbers = "\n";
-
-            for (int i = 0; i < HallInfo.Item2; i++)
-            {
-                if (i > 8)
-                {
-                    XasNumbers += (i + 1) + " ";
-                }
-                else if (i == 8)
-                {
-                    XasNumbers += (i + 1) + "  ";
-                }
-                else
-                {
-                    XasNumbers += (i + 1) + "  ";
-                }
-            }
-            XasNumbers += "\n";
-            Console.WriteLine(XasNumbers);
-
-            for (int i = 0; i < HallInfo.Item1; i++)
-            {
-                for (int j = 0; j < HallInfo.Item2; j++)
-                {
-                    for (int z = 0; z < Seats.Count; z++)
-                    {
-                        if (Seats[z].Item2 == i && Seats[z].Item3 == j)
+                        for (int z = 0; z < Seats.Count; z++)
                         {
-                            if (Seats[z].Item5)
+                            if (Seats[z].Item2 == i && Seats[z].Item3 == j)
                             {
-                                if (Seats[z].Item1 == HallInfo.Item5)
+                                if (Seats[z].Item5)
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    if (Seats[z].Item1 == HallInfo.Item5)
+                                    {
+                                        Color color = Color.FromArgb(250, 250, 0);
+                                        Point position = new Point(25 + (j * 100), 25 + (i * 40));
+                                        Size dimenision = new Size(95, 35);
+                                        Tuple<Point, Size,Color> data = new Tuple<Point, Size,Color>(position, dimenision,color);
+                                        AllSeats.Add(data);
+                                    }
+                                    else if (Seats[z].Item1 == HallInfo.Item6)
+                                    {
+                                        Color color = Color.FromArgb(0, 0, 250);
+                                        Point position = new Point(25 + (j * 100), 25 + (i * 40));
+                                        Size dimenision = new Size(95, 35);
+                                        Tuple<Point, Size,Color> data = new Tuple<Point, Size,Color>(position, dimenision,color);
+                                        AllSeats.Add(data);
+                                    }
+                                    else if (Seats[z].Item1 == HallInfo.Item7)
+                                    {
+                                        Color color = Color.FromArgb(0, 250, 0);
+                                        Point position = new Point(25 + (j * 100), 25 + (i * 40));
+                                        Size dimenision = new Size(95, 35);
+                                        Tuple<Point, Size,Color> data = new Tuple<Point, Size,Color>(position, dimenision,color);
+                                        AllSeats.Add(data);
+                                    }
                                 }
-                                else if (Seats[z].Item1 == HallInfo.Item6)
+                                else if (Seats[z].Item4 == "(No Seat)")
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Cyan;
-                                }
-                                else if (Seats[z].Item1 == HallInfo.Item7)
-                                {
-                                    Console.ForegroundColor = ConsoleColor.Green;
-                                }
-
-                                if (j > 8)
-                                {
-                                    Console.Write(" O ");
-                                }
-                                else if (j == 8)
-                                {
-                                    Console.Write("O ");
+                                    //idk
                                 }
                                 else
                                 {
-                                    Console.Write("O  ");
+                                    Color color = Color.FromArgb(250, 0, 0);
+                                    Point position = new Point(25 + (j * 100), 25 + (i * 40));
+                                    Size dimenision = new Size(95, 35);
+                                    Tuple<Point, Size, Color> data = new Tuple<Point, Size, Color>(position, dimenision, color);
+                                    AllSeats.Add(data);
                                 }
-                                Console.ResetColor();
+                                break;
                             }
-                            else if (Seats[z].Item4 == "(No Seat)")
-                            {
-                                if (j > 8)
-                                {
-                                    Console.Write("   ");
-                                }
-                                else if (j == 8)
-                                {
-                                    Console.Write("  ");
-                                }
-                                else
-                                {
-                                    Console.Write("   ");
-                                }
-                            }
-                            else
-                            {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                if (j > 8)
-                                {
-                                    Console.Write(" X ");
-                                }
-                                else if (j == 8)
-                                {
-                                    Console.Write("X ");
-                                }
-                                else
-                                {
-                                    Console.Write("X  ");
-                                }
-                                Console.ResetColor();
-                            }
-                            break;
                         }
                     }
                 }
-                Console.Write("  " + (HallInfo.Item1 - i));
-                Console.Write("\n");
-            }
-
-            string screen = "";
-            screen += "\n";
-            for (int i = 0; i < HallInfo.Item2; i++)
-            {
-                screen += "---";
-            }
-
-            screen += "       (screen)\n";
-            Console.WriteLine(screen);
+            
         }
 
+        public void DrawHall(List<Tuple<Point, Size, Color>> data)
+        {
+            foreach (var item in data)
+            {
+                Label label = new Label();
+                label.Name = item.Item1.X + "/" + item.Item1.Y;
+                label.BorderStyle = BorderStyle.FixedSingle;
+                label.Size = item.Item2;
+                label.Location = item.Item1;
+                label.BackColor = item.Item3;
+                label.AutoSize = false;
+
+                label.Click += (s, p) => {
+                    Color color = Color.FromArgb(250, 0, 0);
+                    if (!label.BackColor.Equals(color))
+                    {
+                        for (int i = 0; i < length; i++)
+                        {
+
+                        }
+                        //Add the new window with:
+                        //Name
+                        //SeatAmount
+                    }
+                };
+
+                this.Controls.Add(label);
+            }
+        }
     }
 }

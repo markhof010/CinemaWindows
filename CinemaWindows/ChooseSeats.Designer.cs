@@ -28,33 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.HallPictureBox = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.HallPictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // HallPictureBox
-            // 
-            this.HallPictureBox.Location = new System.Drawing.Point(10, 10);
-            this.HallPictureBox.Name = "HallPictureBox";
-            this.HallPictureBox.Size = new System.Drawing.Size(1240, 650);
-            this.HallPictureBox.TabIndex = 0;
-            this.HallPictureBox.TabStop = false;
             // 
             // ChooseSeats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(1262, 673);
-            this.Controls.Add(this.HallPictureBox);
             this.Name = "ChooseSeats";
             this.Text = "ChooseSeats";
-            ((System.ComponentModel.ISupportInitialize)(this.HallPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox HallPictureBox;
     }
 }
