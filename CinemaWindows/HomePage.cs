@@ -26,6 +26,7 @@ namespace CinemaWindows
 				movieLabel.Width = 150;
 				movieLabel.Height = 60;
 				movieLabel.BorderStyle = BorderStyle.FixedSingle;
+				movieLabel.Cursor = Cursors.Hand;
 				movieLabel.Text = "Title: " + movie.Item2;
 				movieLabel.Text += "\nGenre: " + movie.Item4;
 				movieLabel.Text += "\nDuration: " + movie.Item3 + " minutes";
@@ -35,7 +36,10 @@ namespace CinemaWindows
 				movieLabel.Click += (s, p) => {
 					MI.ShowDialog();
 				};
-			
+
+				movieLabel.MouseEnter += new EventHandler(mouseEnter);
+				movieLabel.MouseLeave += new EventHandler(mouseLeave);
+
 				movieLabel.Location = new Point(0 + x, 120);
 				movieLabel.AutoSize = false;
 
@@ -43,6 +47,20 @@ namespace CinemaWindows
 
 				x += 200;
 			}
+		}
+
+		private void mouseEnter(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.Fixed3D;
+			theLabel.BackColor = Color.FromKnownColor(KnownColor.AliceBlue);
+		}
+
+		private void mouseLeave(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.FixedSingle;
+			theLabel.BackColor = Control.DefaultBackColor;
 		}
 
 		private void loginButon_Click(object sender, EventArgs e)
