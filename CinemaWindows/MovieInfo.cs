@@ -23,11 +23,12 @@ namespace CinemaWindows
 
 			this.AutoScroll = true;
 			int place = 120;
-			int place2 = 200;
+			int place2 = 275;
 			Tuple<string, string, string, string, string, string> movieInfo = GD.ShowMovieByID(movieId);
 
 			Label LB1 = new Label();
-			LB1.Text = "Movie selected: " + movieInfo.Item2 + "\nYear: " + movieInfo.Item4 + "\nAge restriction:  " + movieInfo.Item3 + "\nActors:  " + movieInfo.Item5 + "\nSummary:  " + movieInfo.Item6;
+			LB1.Text = "Movie selected: " + movieInfo.Item2 + "\n\nYear: " + movieInfo.Item4 + "\n\nAge restriction:  " + movieInfo.Item3 + "\n\nActors:  " + movieInfo.Item5 + "\n\nSummary:  " + movieInfo.Item6;
+			LB1.MaximumSize = new Size(600, 0);
 			LB1.Location = new Point(50, place);
 			LB1.AutoSize = true;
 			this.Controls.Add(LB1);

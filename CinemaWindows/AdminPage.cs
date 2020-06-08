@@ -33,5 +33,13 @@ namespace CinemaWindows.Database
 			form.ShowDialog();
 			this.Close();
 		}
+
+		private void removeBTN_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			RemoveMovie delform = new RemoveMovie();
+			delform.ShowDialog();
+			this.Close();
+		}
 	}
 }
