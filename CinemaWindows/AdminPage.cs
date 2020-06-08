@@ -9,21 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CinemaWindows
+namespace CinemaWindows.Database
 {
-	public partial class InlogPage : Form
+	public partial class AdminPage : Form
 	{
-		public InlogPage()
+		public AdminPage()
 		{
 			InitializeComponent();
 		}
 
-		private void InlogPage_Load(object sender, EventArgs e)
-		{
-
-		}
-
-		private void HomePageBTN_Click(object sender, EventArgs e)
+		private void LogoutBTN_Click(object sender, EventArgs e)
 		{
 			this.Hide();
 			HomeScreen form = new HomeScreen();
@@ -31,10 +26,10 @@ namespace CinemaWindows
 			this.Close();
 		}
 
-		private void AdminPageBTN_Click(object sender, EventArgs e)
+		private void AddMovieBTN_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-			AdminPage form = new AdminPage();
+			AddMovie form = new AddMovie();
 			form.ShowDialog();
 			this.Close();
 		}
