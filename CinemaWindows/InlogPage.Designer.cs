@@ -54,14 +54,17 @@
 			// 
 			// InlogPage
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(1600, 865);
+			this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
 			this.ClientSize = new System.Drawing.Size(1200, 692);
 			this.Controls.Add(this.HomePageBTN);
 			this.Controls.Add(this.AdminPageBTN);
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "InlogPage";
 			this.Text = "Login Page";
+			this.Load += new System.EventHandler(this.InlogPage_Load);
 			this.ResumeLayout(false);
 
 		}

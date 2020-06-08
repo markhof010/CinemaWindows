@@ -15,8 +15,34 @@ namespace CinemaWindows
 	{
 		public HomeScreen()
 		{
-			GetData GD = new GetData();
 			InitializeComponent();
+
+			GetData GD = new GetData();
+			int x = 20;
+
+			foreach(Tuple<string, string, string, string, string> movie in GD.ShowMovies())
+			{
+				Label movieLabel = new Label();
+				movieLabel.Width = 150;
+				movieLabel.Height = 60;
+				movieLabel.BorderStyle = BorderStyle.FixedSingle;
+				movieLabel.Text = "Title: " + movie.Item2;
+				movieLabel.Text += "\nGenre: " + movie.Item4;
+				movieLabel.Text += "\nDuration: " + movie.Item3 + " minutes";
+				movieLabel.Text += "\nAge qualification: " + movie.Item5 +"+";
+				MovieInfo MI = new MovieInfo(movie.Item1);
+
+				movieLabel.Click += (s, p) => {
+					MI.ShowDialog();
+				};
+			
+				movieLabel.Location = new Point(0 + x, 120);
+				movieLabel.AutoSize = false;
+
+				this.Controls.Add(movieLabel);
+
+				x += 200;
+			}
 		}
 
 		private void loginButon_Click(object sender, EventArgs e)

@@ -18,6 +18,11 @@ namespace CinemaWindows
 			InitializeComponent();
 		}
 
+		private void InlogPage_Load(object sender, EventArgs e)
+		{
+
+		}
+
 		private void HomePageBTN_Click(object sender, EventArgs e)
 		{
 			this.Hide();
