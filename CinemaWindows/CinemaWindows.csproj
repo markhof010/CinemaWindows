@@ -93,6 +93,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMovie.Designer.cs">
+      <DependentUpon>AddMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTime.Designer.cs">
+      <DependentUpon>AddTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contact.Designer.cs">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AddData.cs" />
+    <Compile Include="AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPage.Designer.cs">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\DelData.cs" />
+    <Compile Include="DelTimes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DelTimes.Designer.cs">
+      <DependentUpon>DelTimes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FAQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAQ.Designer.cs">
+      <DependentUpon>FAQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="AmountSeat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +163,12 @@
     <Compile Include="Overview.Designer.cs">
       <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
+    <Compile Include="MovieInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovieInfo.Designer.cs">
+      <DependentUpon>MovieInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,11 +177,47 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AmountSeat.resx">
-      <DependentUpon>AmountSeat.cs</DependentUpon>
+    <Compile Include="RemoveMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveMovie.Designer.cs">
+      <DependentUpon>RemoveMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestaurantMenu.Designer.cs">
+      <DependentUpon>RestaurantMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RevMoviePOP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevMoviePOP.Designer.cs">
+      <DependentUpon>RevMoviePOP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TicketCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicketCode.Designer.cs">
+      <DependentUpon>TicketCode.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddMovie.resx">
+      <DependentUpon>AddMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChooseSeats.resx">
-      <DependentUpon>ChooseSeats.cs</DependentUpon>
+    <EmbeddedResource Include="AddTime.resx">
+      <DependentUpon>AddTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contact.resx">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPage.resx">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DelTimes.resx">
+      <DependentUpon>DelTimes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FAQ.resx">
+      <DependentUpon>FAQ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
@@ -147,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MovieInfo.resx">
+      <DependentUpon>MovieInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonInfo.resx">
       <DependentUpon>PersonInfo.cs</DependentUpon>
@@ -160,6 +243,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RemoveMovie.resx">
+      <DependentUpon>RemoveMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurantMenu.resx">
+      <DependentUpon>RestaurantMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevMoviePOP.resx">
+      <DependentUpon>RevMoviePOP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketCode.resx">
+      <DependentUpon>TicketCode.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
