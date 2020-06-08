@@ -46,7 +46,10 @@ namespace CinemaWindows
 				LB2.Text = "[" + (i + 1) + "] " + times.Item1[i].ToString("HH:mm dd/MM/yyyy");
 				this.Controls.Add(LB2);
 
-				LB2.Click += HomeScreenBTN_Click;
+				//LB2.Click += HomeScreenBTN_Click;
+				//LB2.Click += ReserveMovie(string movieId, string timesId);
+				
+				LB2.Click += (sender, EventArgs) => { LB2_Click(sender, EventArgs, movieId); };
 
 				place2 += 20;
 			}
@@ -70,6 +73,34 @@ namespace CinemaWindows
 			HomeScreen form = new HomeScreen();
 			form.ShowDialog();
 			this.Close();
+		}
+
+		public void LB2_Click(object sender, EventArgs e, string movieId)
+        {
+			GetData GD = new GetData();
+			Tuple<string, string, string, string, string, string> movieInfo = GD.ShowMovieByID(movieId);
+
+			string message;
+			string title;
+
+			message = "Are you over " + movieInfo.Item3 + " years old?";
+			title = "Age check";
+			var result = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+			if (result == DialogResult.No)
+			{
+				message = "You're not old enough for this movie\n\nYou can only go if you take someone who is 18 years or older with you\n\nMake sure that person reserves the tickets";
+				MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+				this.Hide();
+				HomeScreen form = new HomeScreen();
+				form.ShowDialog();
+				this.Close();
+			}
+			else
+            {
+				// code to reserve tickets here
+            }
 		}
 	}
 }
