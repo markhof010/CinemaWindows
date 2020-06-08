@@ -46,8 +46,25 @@ namespace CinemaWindows
 
 				LB2.Click += ConfirmBTN_Click;
 
+				LB2.MouseEnter += new EventHandler(mouseEnter);
+				LB2.MouseLeave += new EventHandler(mouseLeave);
+
 				place += 20;
 			}
+		}
+
+		private void mouseEnter(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.Fixed3D;
+			theLabel.BackColor = Color.FromKnownColor(KnownColor.AliceBlue);
+		}
+
+		private void mouseLeave(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.FixedSingle;
+			theLabel.BackColor = Control.DefaultBackColor;
 		}
 
 		private void ConfirmBTN_Click(object sender, EventArgs e)

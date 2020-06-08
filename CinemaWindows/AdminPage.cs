@@ -34,7 +34,7 @@ namespace CinemaWindows.Database
 			this.Close();
 		}
 
-		private void DelMovieBTN_Click(object sender, EventArgs e)
+		private void removeBTN_Click(object sender, EventArgs e)
 		{
 			this.Hide();
 			RemoveMovie delform = new RemoveMovie();

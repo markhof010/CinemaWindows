@@ -37,6 +37,9 @@ namespace CinemaWindows
 					this.Close();
 				};
 
+				movieLabel.MouseEnter += new EventHandler(mouseEnter);
+				movieLabel.MouseLeave += new EventHandler(mouseLeave);
+
 				movieLabel.Location = new Point(0 + x, 120);
 				movieLabel.AutoSize = false;
 
@@ -44,6 +47,20 @@ namespace CinemaWindows
 
 				x += 200;
 			}
+		}
+
+		private void mouseEnter(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.Fixed3D;
+			theLabel.BackColor = Color.FromKnownColor(KnownColor.AliceBlue);
+		}
+
+		private void mouseLeave(object sender, EventArgs e)
+		{
+			Label theLabel = (Label)sender;
+			theLabel.BorderStyle = BorderStyle.FixedSingle;
+			theLabel.BackColor = Control.DefaultBackColor;
 		}
 
 		private void ReturnBTN_Click(object sender, EventArgs e)
