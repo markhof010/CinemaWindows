@@ -118,6 +118,13 @@
     <Compile Include="AdminPage.Designer.cs">
       <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\DelData.cs" />
+    <Compile Include="DelTimes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DelTimes.Designer.cs">
+      <DependentUpon>DelTimes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FAQ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPage.resx">
       <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DelTimes.resx">
+      <DependentUpon>DelTimes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FAQ.resx">
       <DependentUpon>FAQ.cs</DependentUpon>

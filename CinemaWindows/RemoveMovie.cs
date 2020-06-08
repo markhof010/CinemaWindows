@@ -29,10 +29,12 @@ namespace CinemaWindows
 				movieLabel.Text += "\nGenre: " + movie.Item4;
 				movieLabel.Text += "\nDuration: " + movie.Item3 + " minutes";
 				movieLabel.Text += "\nAge qualification: " + movie.Item5 + "+";
-				RevMoviePOP POP = new RevMoviePOP();
+				RevMoviePOP POP = new RevMoviePOP(movie.Item1, movie.Item2);
 
 				movieLabel.Click += (s, p) => {
+					this.Hide();
 					POP.ShowDialog();
+					this.Close();
 				};
 
 				movieLabel.Location = new Point(0 + x, 120);
@@ -42,6 +44,14 @@ namespace CinemaWindows
 
 				x += 200;
 			}
+		}
+
+		private void ReturnBTN_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			AdminPage form = new AdminPage();
+			form.ShowDialog();
+			this.Close();
 		}
 	}
 }

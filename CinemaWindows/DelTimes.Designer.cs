@@ -1,6 +1,6 @@
 ﻿namespace CinemaWindows
 {
-	partial class RemoveMovie
+	partial class DelTimes
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -37,19 +37,19 @@
 			this.ReturnBTN.Margin = new System.Windows.Forms.Padding(2);
 			this.ReturnBTN.Name = "ReturnBTN";
 			this.ReturnBTN.Size = new System.Drawing.Size(75, 23);
-			this.ReturnBTN.TabIndex = 18;
+			this.ReturnBTN.TabIndex = 19;
 			this.ReturnBTN.Text = "Return";
 			this.ReturnBTN.UseVisualStyleBackColor = true;
 			this.ReturnBTN.Click += new System.EventHandler(this.ReturnBTN_Click);
 			// 
-			// RemoveMovie
+			// DelTimes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(975, 524);
+			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.ReturnBTN);
-			this.Name = "RemoveMovie";
-			this.Text = "RemoveMovie";
+			this.Name = "DelTimes";
+			this.Text = "DelTimes";
 			this.ResumeLayout(false);
 
 		}

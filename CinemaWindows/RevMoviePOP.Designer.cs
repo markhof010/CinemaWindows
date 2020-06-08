@@ -50,6 +50,7 @@
 			this.MovieBTN.TabIndex = 1;
 			this.MovieBTN.Text = "Entire Movie";
 			this.MovieBTN.UseVisualStyleBackColor = true;
+			this.MovieBTN.Click += new System.EventHandler(this.MovieBTN_Click);
 			// 
 			// TimeBTN
 			// 
@@ -59,6 +60,7 @@
 			this.TimeBTN.TabIndex = 2;
 			this.TimeBTN.Text = "Certain Time";
 			this.TimeBTN.UseVisualStyleBackColor = true;
+			this.TimeBTN.Click += new System.EventHandler(this.TimeBTN_Click);
 			// 
 			// RevMoviePOP
 			// 
@@ -69,7 +71,7 @@
 			this.Controls.Add(this.MovieBTN);
 			this.Controls.Add(this.QuestionLBL);
 			this.Name = "RevMoviePOP";
-			this.Text = "RevMoviePOP";
+			this.Text = "Remove Options for ";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

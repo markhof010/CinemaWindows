@@ -118,6 +118,7 @@ namespace CinemaWindows.Database
             }
             return Tuple.Create(dt, dateID, Hall);
         }
+
         public List<Tuple<string, string, string, string, string>> ShowMovies()
         {
             List<Tuple<string, string, string, string, string>> movielist = new List<Tuple<string, string, string, string, string>>();
@@ -160,8 +161,7 @@ namespace CinemaWindows.Database
             }
         }
 
-
-    public List<Tuple<int, string, double>> GetProducts()
+        public List<Tuple<int, string, double>> GetProducts()
         {
             List<Tuple<int, string, double>> products = new List<Tuple<int, string, double>>();
 
@@ -262,6 +262,63 @@ namespace CinemaWindows.Database
                 Connection.Close();
             }
             return Tuple.Create(StartTime, Hall, Endtime);
+        }
+
+        public Tuple<List<int>, List<int>> GetDateHallIDs(int MovieID)
+        {
+            List<int> DateIDs = new List<int>();
+            List<int> HallIDs = new List<int>();
+            try
+            {
+                Connection.Open();
+
+                string SelectDate = @"SELECT DateID FROM date WHERE MovieID = @MovieID";
+
+                MySqlCommand commandDate = new MySqlCommand(SelectDate, Connection);
+                MySqlParameter MovieIDParam = new MySqlParameter("@MovieID", MySqlDbType.Int32);
+
+                MovieIDParam.Value = MovieID;
+
+                commandDate.Parameters.Add(MovieIDParam);
+
+                MySqlDataReader dataReader = commandDate.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    DateIDs.Add(dataReader.GetInt32("DateID"));
+                }
+                dataReader.Close();
+
+                for (int i = 0; i < DateIDs.Count; i++)
+                {
+                    string SelectHall = @"SELECT HallID FROM hall WHERE DateID = @dateID";
+
+                    MySqlCommand commandHall = new MySqlCommand(SelectHall, Connection);
+                    MySqlParameter DateIDParam = new MySqlParameter("@dateID", MySqlDbType.Int32);
+
+                    DateIDParam.Value = DateIDs[i];
+
+                    commandHall.Parameters.Add(DateIDParam);
+
+                    MySqlDataReader dataReader2 = commandHall.ExecuteReader();
+
+                    while (dataReader2.Read())
+                    {
+                        HallIDs.Add(dataReader2.GetInt32("HallID"));
+                    }
+                    dataReader2.Close();
+                }
+
+            }
+            catch (MySqlException)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return Tuple.Create(DateIDs, HallIDs);
         }
     }
 }
