@@ -16,13 +16,9 @@ namespace CinemaWindows
 		public HomeScreen()
 		{
 			GetData GD = new GetData();
-			int hallid = GD.GetHallID(18);
 			InitializeComponent();
-			Label LB1 = new Label();
-			LB1.Text = hallid.ToString();
-			this.Controls.Add(LB1);
-			ChooseSeats chooseseat = new ChooseSeats();
-			chooseseat.Show();
+			AmountSeat amountseat = new AmountSeat();
+			amountseat.Show();
 		}
 
 		private void loginButon_Click(object sender, EventArgs e)

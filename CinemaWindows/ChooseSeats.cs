@@ -20,7 +20,8 @@ namespace CinemaWindows
 
         public Bitmap Hall { get; set; }
 
-        public ChooseSeats()
+
+        public ChooseSeats(int hallNumber, int amount)
         {
             InitializeComponent();
             AllSeats = new List<Tuple<Point, Size,Color>>();
