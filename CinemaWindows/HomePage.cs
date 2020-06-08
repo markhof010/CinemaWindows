@@ -94,5 +94,13 @@ namespace CinemaWindows
 			form.ShowDialog();
 			this.Close();
 		}
+
+		private void TicketCodeBTN_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			AddTime form = new AddTime("Transformers", 90);
+			form.ShowDialog();
+			this.Close();
+		}
 	}
 }
