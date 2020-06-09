@@ -18,7 +18,7 @@ namespace CinemaWindows
 
 
 
-		public PersonInfo(Point Startxy, int amount, int hallID, double totalprice)
+		public PersonInfo(Point Startxy, int amount, int hallID, double totalprice, string movieID, int dateID)
 		{
 			InitializeComponent();
 		}

@@ -16,30 +16,34 @@ namespace CinemaWindows
 {
     public partial class ChooseSeats : Form
     {
-        public List<Tuple<Point, Size,Color,bool,double>> AllSeats { get; set; }
+        private List<Tuple<Point, Size,Color,bool,double>> AllSeats { get; set; }
 
-        public Bitmap Hall { get; set; }
+        private int Amount { get; set; }
 
-        public int Amount { get; set; }
+        private int HighestX { get; set; }
 
-        public int HighestX { get; set; }
+        private int HallNumber { get; set; }
 
-        public int HallNumber { get; set; }
+        private int DateID { get; set; }
 
-        public ChooseSeats(int hallNumber, int amount)
+        private string MovieID { get; set; }
+
+        public ChooseSeats(int hallNumber, int amount, int dateID, string movieID)
         {
             InitializeComponent();
             Amount = amount;
             AllSeats = new List<Tuple<Point, Size,Color,bool,double>>();
+            DateID = dateID;
+            MovieID = movieID;
             GetData data = new GetData();
             Tuple<int, int, int, int, double, double, double> part1 = data.GetHallInfo(hallNumber);
             HighestX = part1.Item2;
             List<Tuple<double, int, int, string, bool>> part2 = data.GetSeat(hallNumber);
-            GetHall(part1, part2, Hall);
+            GetHall(part1, part2);
             DrawHall(AllSeats);
         }
 
-        public void GetHall(Tuple<int, int, int, int, double, double, double> HallInfo, List<Tuple<double, int, int, string, bool>> Seats, Bitmap map)
+        public void GetHall(Tuple<int, int, int, int, double, double, double> HallInfo, List<Tuple<double, int, int, string, bool>> Seats)
         {
             for (int i = 0; i < HallInfo.Item1; i++)
             {
@@ -123,7 +127,7 @@ namespace CinemaWindows
                     Color color = Color.FromArgb(250, 0, 0);
                     for (int k = 0; k < data.Count; k++)
                     {
-                        if (label.Location.Y == data[k].Item1.Y && label.Location.X <= data[k].Item1.X && label.Location.X + Amount >= data[k].Item1.X)
+                        if (label.Location.Y == data[k].Item1.Y && label.Location.X <= data[k].Item1.X && label.Location.X + ((Amount - 1) *100) >= data[k].Item1.X)
                         {
                             if (data[k].Item4)
                             {
@@ -140,7 +144,7 @@ namespace CinemaWindows
                     if (canreserve)
                     {
                         this.Hide();
-                        PersonInfo destination = new PersonInfo(label.Location,Amount,HallNumber,totalprice);
+                        PersonInfo destination = new PersonInfo(label.Location,Amount,HallNumber,totalprice,MovieID,DateID);
                         destination.ShowDialog();
                         this.Close();
                     }

@@ -16,11 +16,20 @@ namespace CinemaWindows
         private Tuple<int, int, int, int, double, double, double> HallInfo;
         private List<Tuple<double, int, int, string, bool>> Seats;
 
-        public AmountSeat()
+        private int DateID { get; set; }
+
+        private int HallID { get; set; }
+
+        private string MovieID { get; set; }
+
+        public AmountSeat(int hallID,int dateID, string movieID)
 		{
 			InitializeComponent();
+            DateID = dateID;
+            HallID = hallID;
+            MovieID = movieID;
             GetData GD = new GetData();
-            HallInfo = GD.GetHallInfo(1);
+            HallInfo = GD.GetHallInfo(hallID);
             Seats = GD.GetSeat(HallInfo.Item4);
 		}
 
@@ -29,7 +38,7 @@ namespace CinemaWindows
 			if (seatCheck((int)amountNum.Value))
 			{
                 Hide();
-                ChooseSeats form = new ChooseSeats(1, (int)amountNum.Value);
+                ChooseSeats form = new ChooseSeats(HallID, (int)amountNum.Value, DateID, MovieID);
                 form.ShowDialog();
                 Close();
             }
