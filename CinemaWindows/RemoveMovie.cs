@@ -11,30 +11,30 @@ using CinemaWindows.Database;
 
 namespace CinemaWindows
 {
-	public partial class HomeScreen : Form
+	public partial class RemoveMovie : Form
 	{
-		public HomeScreen()
+		public RemoveMovie()
 		{
 			InitializeComponent();
-
 			GetData GD = new GetData();
 			int x = 20;
 
-			foreach(Tuple<string, string, string, string, string> movie in GD.ShowMovies())
+			foreach (Tuple<string, string, string, string, string> movie in GD.ShowMovies())
 			{
 				Label movieLabel = new Label();
 				movieLabel.Width = 150;
 				movieLabel.Height = 60;
 				movieLabel.BorderStyle = BorderStyle.FixedSingle;
-				movieLabel.Cursor = Cursors.Hand;
 				movieLabel.Text = "Title: " + movie.Item2;
 				movieLabel.Text += "\nGenre: " + movie.Item4;
 				movieLabel.Text += "\nDuration: " + movie.Item3 + " minutes";
-				movieLabel.Text += "\nAge qualification: " + movie.Item5 +"+";
-				MovieInfo MI = new MovieInfo(movie.Item1);
+				movieLabel.Text += "\nAge qualification: " + movie.Item5 + "+";
+				RevMoviePOP POP = new RevMoviePOP(movie.Item1, movie.Item2);
 
 				movieLabel.Click += (s, p) => {
-					MI.ShowDialog();
+					this.Hide();
+					POP.ShowDialog();
+					this.Close();
 				};
 
 				movieLabel.MouseEnter += new EventHandler(mouseEnter);
@@ -63,39 +63,10 @@ namespace CinemaWindows
 			theLabel.BackColor = Control.DefaultBackColor;
 		}
 
-		private void loginButon_Click(object sender, EventArgs e)
-		{
-			Hide();
-			InlogPage form = new InlogPage();
-			form.ShowDialog();
-			Close();
-		}
-
-		private void PersonInfoButton_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void MenuBTN_Click(object sender, EventArgs e)
+		private void ReturnBTN_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-			RestaurantMenu form = new RestaurantMenu();
-			form.ShowDialog();
-			this.Close();
-		}
-
-		private void ContactBTN_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			Contact form = new Contact();
-			form.ShowDialog();
-			this.Close();
-		}
-
-		private void TicketCodeBTN_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			AddTime form = new AddTime("Transformers", 90);
+			AdminPage form = new AdminPage();
 			form.ShowDialog();
 			this.Close();
 		}
