@@ -46,10 +46,11 @@ namespace CinemaWindows
 				LB2.Cursor = Cursors.Hand;
 
 				int dateID = times.Item2[i];
+				int hallNumber = times.Item3[i];
 
 				LB2.Text = times.Item1[i].ToString("HH:mm dd/MM/yyyy");
 				this.Controls.Add(LB2);
-				LB2.Click += (sender, EventArgs) => { LB2_Click(sender, EventArgs, movieId,dateID); };
+				LB2.Click += (sender, EventArgs) => { LB2_Click(sender, EventArgs, movieId,dateID,hallNumber); };
 				LB2.MouseEnter += new EventHandler(mouseEnter);
 				LB2.MouseLeave += new EventHandler(mouseLeave);
 				place2 += 20;
@@ -73,7 +74,7 @@ namespace CinemaWindows
 			this.Close();
 		}
 
-		public void LB2_Click(object sender, EventArgs e, string movieId, int DateID)
+		public void LB2_Click(object sender, EventArgs e, string movieId, int DateID, int hallnumber)
         {
 			GetData GD = new GetData();
 			Tuple<string, string, string, string, string, string> movieInfo = GD.ShowMovieByID(movieId);
@@ -99,7 +100,7 @@ namespace CinemaWindows
             {
 				this.Hide();
 				int hallID = GD.GetHallID(DateID);
-				AmountSeat seats = new AmountSeat(hallID, DateID, movieId);
+				AmountSeat seats = new AmountSeat(hallID, DateID, movieId, hallnumber);
 				seats.ShowDialog();
 				this.Close();
             }

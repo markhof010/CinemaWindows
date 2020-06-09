@@ -22,12 +22,15 @@ namespace CinemaWindows
 
         private string MovieID { get; set; }
 
-        public AmountSeat(int hallID,int dateID, string movieID)
+        private int HallNumber { get; set; }
+
+        public AmountSeat(int hallID,int dateID, string movieID, int hallNumber)
 		{
 			InitializeComponent();
             DateID = dateID;
             HallID = hallID;
             MovieID = movieID;
+            HallNumber = hallNumber;
             GetData GD = new GetData();
             HallInfo = GD.GetHallInfo(hallID);
             Seats = GD.GetSeat(HallInfo.Item4);
@@ -38,7 +41,7 @@ namespace CinemaWindows
 			if (seatCheck((int)amountNum.Value))
 			{
                 Hide();
-                ChooseSeats form = new ChooseSeats(HallID, (int)amountNum.Value, DateID, MovieID);
+                ChooseSeats form = new ChooseSeats(HallID, (int)amountNum.Value, DateID, MovieID, HallNumber);
                 form.ShowDialog();
                 Close();
             }
