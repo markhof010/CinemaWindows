@@ -32,10 +32,9 @@
             // 
             // ChooseSeats
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.ClientSize = new System.Drawing.Size(1260, 671);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ChooseSeats";
             this.ShowIcon = false;
             this.Text = "ChooseSeats";

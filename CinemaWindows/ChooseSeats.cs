@@ -53,18 +53,18 @@ namespace CinemaWindows
             int multiplierY = 0;
             if (HallNumber == 1)
             {
-                multiplierX = 75;
-                multiplierY = 30;
+                multiplierX = 100;
+                multiplierY = 40;
             }
             else if (HallNumber == 2)
             {
-                multiplierX = 50;
-                multiplierY = 25;
+                multiplierX = 65;
+                multiplierY = 30;
             }
             else if (HallNumber == 3)
             {
-                multiplierX = 35;
-                multiplierY = 22;
+                multiplierX = 40;
+                multiplierY = 25;
             }
             else
             {
@@ -175,7 +175,7 @@ namespace CinemaWindows
                     }
                     else
                     {
-                        Console.WriteLine("Something went wrong");
+                        DialogResult result = MessageBox.Show("Those/This seat(s) are unavailable", "Not Available", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 };
 
@@ -186,7 +186,7 @@ namespace CinemaWindows
             screen.Name = "screen";
             screen.BorderStyle = BorderStyle.FixedSingle;
             screen.Size = new Size(1180,25);
-            screen.Location = new Point(25,475);
+            screen.Location = new Point(25, 625);
             screen.BackColor = color;
             screen.AutoSize = false;
             this.Controls.Add(screen);
