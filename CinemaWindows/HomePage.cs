@@ -17,8 +17,6 @@ namespace CinemaWindows
 		{
 			GetData GD = new GetData();
 			InitializeComponent();
-			AmountSeat amountseat = new AmountSeat();
-			amountseat.Show();
 		}
 
 		private void loginButon_Click(object sender, EventArgs e)
@@ -31,10 +29,7 @@ namespace CinemaWindows
 
 		private void PersonInfoButton_Click(object sender, EventArgs e)
 		{
-			this.Hide();
-			PersonInfo personInfoform = new PersonInfo();
-			personInfoform.ShowDialog();
-			this.Close();
+
 		}
 	}
 }

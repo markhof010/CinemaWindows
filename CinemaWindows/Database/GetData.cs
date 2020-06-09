@@ -148,5 +148,33 @@ namespace CinemaWindows.Database
             return Tuple.Create(row, col, dateID, HallID, inner, middle, outer);
         }
 
+        public bool Get1Seat(int HallID, int x, int y)
+        {
+            bool available = false;
+
+            try
+            {
+                Connection.Open();
+                string BoolToCheck = "SELECT Availability FROM seats where HallID = @HallID AND RowSeat = @Y AND ColumnSeat = @X";
+
+                MySqlCommand command = new MySqlCommand(BoolToCheck, Connection);
+                MySqlParameter HallIDParam = new MySqlParameter("@HallID", MySqlDbType.Int32);
+                MySqlParameter XParam = new MySqlParameter("@X", MySqlDbType.Int32);
+                MySqlParameter YParam = new MySqlParameter("@Y", MySqlDbType.Int32);
+
+
+            }
+            catch (MySqlException ex)
+            {
+
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return available;
+        }
     }
 }

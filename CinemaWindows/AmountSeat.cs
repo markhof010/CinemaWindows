@@ -20,7 +20,7 @@ namespace CinemaWindows
 		{
 			InitializeComponent();
             GetData GD = new GetData();
-            HallInfo = GD.GetHallInfo(18);
+            HallInfo = GD.GetHallInfo(1);
             Seats = GD.GetSeat(HallInfo.Item4);
 		}
 
