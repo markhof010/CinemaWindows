@@ -145,14 +145,17 @@ namespace CinemaWindows
                 label.Location = data[i].Item1;
                 label.BackColor = data[i].Item3;
                 label.AutoSize = false;
+                label.Cursor = Cursors.Hand;
                 bool avail = data[i].Item4;
                 int index = i;
+                bool exists = false;
                 label.Click += (s, p) => {
                     bool canreserve = false;
                     double totalprice = 0.0;
                     for (int k = 0; k < data.Count; k++)
                     {
-                        if (label.Location.Y == data[k].Item1.Y && label.Location.X <= data[k].Item1.X && label.Location.X + ((Amount - 1) *100) >= data[k].Item1.X)
+                        if (label.Location.Y == data[k].Item1.Y && label.Location.X <= data[k].Item1.X && 
+                        label.Location.X + ((Amount - 1) *100) >= data[k].Item1.X)
                         {
                             if (data[k].Item4)
                             {
@@ -165,8 +168,12 @@ namespace CinemaWindows
                                 break;
                             }
                         }
+                        if (label.Location.X + ((Amount - 1) * 100) == data[k].Item1.X && label.Location.Y == data[k].Item1.Y)
+                        {
+                            exists = true;
+                        }
                     }
-                    if (canreserve)
+                    if (canreserve && exists)
                     {
                         this.Hide();
                         PersonInfo destination = new PersonInfo(label.Location,Amount,HallID,totalprice,MovieID,DateID);
@@ -190,6 +197,8 @@ namespace CinemaWindows
             screen.BackColor = color;
             screen.AutoSize = false;
             this.Controls.Add(screen);
+
+            //Add legend
         }
     }
 }
