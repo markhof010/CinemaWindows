@@ -34,7 +34,9 @@ namespace CinemaWindows
 				MovieInfo MI = new MovieInfo(movie.Item1);
 
 				movieLabel.Click += (s, p) => {
+					this.Hide();
 					MI.ShowDialog();
+					this.Close();
 				};
 
 				movieLabel.MouseEnter += new EventHandler(mouseEnter);

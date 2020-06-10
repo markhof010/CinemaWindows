@@ -131,6 +131,7 @@
       <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DelData.cs" />
+    <Compile Include="Database\UpdateData.cs" />
     <Compile Include="DelTimes.cs">
       <SubType>Form</SubType>
     </Compile>

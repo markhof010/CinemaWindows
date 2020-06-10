@@ -420,5 +420,46 @@ namespace CinemaWindows.Database
             }
             return Tuple.Create(DateIDs, HallIDs);
         }
+
+        public DateTime GetDate(int DateID)
+        {
+            try
+            {
+                Connection.Open();
+                string DateInfo = @"SELECT * FROM date";
+
+                MySqlCommand oCmd = new MySqlCommand(DateInfo, Connection);
+
+                MySqlDataReader getDateInfo = oCmd.ExecuteReader();
+                DataTable dataTable = new DataTable();
+
+                dataTable.Load(getDateInfo);
+                DateTime date = new DateTime();
+                while (true)
+                {
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        int dateindb = Convert.ToInt32(row["DateID"]);
+
+                        string datetime = Convert.ToDateTime(row["DateTime"]).ToString("dd/MM/yyyy HH:mm");
+
+                        if (DateID == dateindb)
+                        {
+                            date = Convert.ToDateTime(row["DateTime"]);
+                            break;
+                        }
+                    }
+                    return date;
+                }
+            }
+            catch (MySqlException)
+            {
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

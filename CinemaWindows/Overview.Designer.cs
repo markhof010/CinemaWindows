@@ -42,6 +42,8 @@
 			this.surnameInputlbl = new System.Windows.Forms.Label();
 			this.emaillbl = new System.Windows.Forms.Label();
 			this.emailInputlbl = new System.Windows.Forms.Label();
+			this.cancelBTN = new System.Windows.Forms.Button();
+			this.reserveBTN = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// Namelbl
@@ -170,11 +172,33 @@
 			this.emailInputlbl.TabIndex = 26;
 			this.emailInputlbl.Text = "hier komt email";
 			// 
+			// cancelBTN
+			// 
+			this.cancelBTN.Location = new System.Drawing.Point(562, 483);
+			this.cancelBTN.Name = "cancelBTN";
+			this.cancelBTN.Size = new System.Drawing.Size(75, 23);
+			this.cancelBTN.TabIndex = 28;
+			this.cancelBTN.Text = "Cancel";
+			this.cancelBTN.UseVisualStyleBackColor = true;
+			this.cancelBTN.Click += new System.EventHandler(this.cancelBTN_Click);
+			// 
+			// reserveBTN
+			// 
+			this.reserveBTN.Location = new System.Drawing.Point(419, 483);
+			this.reserveBTN.Name = "reserveBTN";
+			this.reserveBTN.Size = new System.Drawing.Size(75, 23);
+			this.reserveBTN.TabIndex = 29;
+			this.reserveBTN.Text = "Reserve";
+			this.reserveBTN.UseVisualStyleBackColor = true;
+			this.reserveBTN.Click += new System.EventHandler(this.reserveBTN_Click);
+			// 
 			// Overview
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1069, 601);
+			this.Controls.Add(this.reserveBTN);
+			this.Controls.Add(this.cancelBTN);
 			this.Controls.Add(this.emaillbl);
 			this.Controls.Add(this.emailInputlbl);
 			this.Controls.Add(this.surnamelbl);
@@ -212,5 +236,7 @@
 		private System.Windows.Forms.Label surnameInputlbl;
 		private System.Windows.Forms.Label emaillbl;
 		private System.Windows.Forms.Label emailInputlbl;
+		private System.Windows.Forms.Button cancelBTN;
+		private System.Windows.Forms.Button reserveBTN;
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CinemaWindows.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,25 +13,25 @@ namespace CinemaWindows
 {
 	public partial class TicketCode : Form
 	{
-		public TicketCode()
+
+        AddData AD = new AddData();
+		public TicketCode(int X, int Y, int TheatherHall, string MovieName, DateTime Time, Tuple<int, int, int, int, double, string, Tuple<int, int>> MovieInfo, Tuple<string, string, string> PersonInfo)
 		{
 			InitializeComponent();
-            DateTime Time = new DateTime(2020, 7, 24);
-            string MovieName = "Star Wars";
-            int X = 15;
-            int Y = 15;
-            int TheatherHall = 1;
 
             //Takes the first 3 letters of the movie and makes them all caps
             string MovieNameShort = MovieName.Substring(0, 3).ToUpper();
-
-            Label LB1 = new Label();
-            LB1.Text = (Time.ToString("mm")) + (Time.ToString("HH")) + (Time.ToString("dd")) +
+            string TicketCode = (Time.ToString("mm")) + (Time.ToString("HH")) + (Time.ToString("dd")) +
                 (Time.ToString("MM")) + (Time.ToString("yyyy")) + MovieNameShort + X + Y + TheatherHall;
+            
+            Label LB1 = new Label();
             LB1.Location = new Point((this.Width / 2) - 100, 100);
+            LB1.Text = "TicketCode:\n" + TicketCode;
             LB1.Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             LB1.AutoSize = true;
             this.Controls.Add(LB1);
+
+            AD.ReserveTicket((PersonInfo.Item1 + " " + PersonInfo.Item2), PersonInfo.Item3, TicketCode, Convert.ToInt32(MovieInfo.Item6), MovieInfo.Item3, MovieInfo.Item1, MovieInfo.Item2, MovieInfo.Item7.Item1, MovieInfo.Item7.Item2, MovieInfo.Item5, MovieInfo.Item4);
         }
 
         /// <summary>
