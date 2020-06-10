@@ -14,7 +14,11 @@ namespace CinemaWindows
 {
 	public partial class PersonInfo : Form
 	{
-		public PersonInfo()
+
+
+
+
+		public PersonInfo(Point Startxy, int amount, int hallID, double totalprice, string movieID, int dateID)
 		{
 			InitializeComponent();
 		}

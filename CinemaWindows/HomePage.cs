@@ -73,10 +73,7 @@ namespace CinemaWindows
 
 		private void PersonInfoButton_Click(object sender, EventArgs e)
 		{
-			this.Hide();
-			PersonInfo personInfoform = new PersonInfo();
-			personInfoform.ShowDialog();
-			this.Close();
+
 		}
 
 		private void MenuBTN_Click(object sender, EventArgs e)

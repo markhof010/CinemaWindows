@@ -93,6 +93,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmountSeat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmountSeat.Designer.cs">
+      <DependentUpon>AmountSeat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseSeats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseSeats.Designer.cs">
+      <DependentUpon>ChooseSeats.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddMovie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +177,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AmountSeat.resx">
+      <DependentUpon>AmountSeat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseSeats.resx">
+      <DependentUpon>ChooseSeats.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="RemoveMovie.cs">
       <SubType>Form</SubType>
     </Compile>
