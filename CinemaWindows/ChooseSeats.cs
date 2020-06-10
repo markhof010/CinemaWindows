@@ -152,10 +152,24 @@ namespace CinemaWindows
                 label.Click += (s, p) => {
                     bool canreserve = false;
                     double totalprice = 0.0;
+                    int multiplier = 0;
+                    if (HallNumber == 1)
+                    {
+                        multiplier = 100;
+                    }
+                    else if (HallNumber == 2)
+                    {
+                        multiplier = 65;
+                    }
+                    else if (HallNumber == 3)
+                    {
+                        multiplier = 40;
+                    }
+
                     for (int k = 0; k < data.Count; k++)
                     {
                         if (label.Location.Y == data[k].Item1.Y && label.Location.X <= data[k].Item1.X && 
-                        label.Location.X + ((Amount - 1) *100) >= data[k].Item1.X)
+                        label.Location.X + ((Amount - 1) *multiplier) >= data[k].Item1.X)
                         {
                             if (data[k].Item4)
                             {
@@ -168,7 +182,7 @@ namespace CinemaWindows
                                 break;
                             }
                         }
-                        if (label.Location.X + ((Amount - 1) * 100) == data[k].Item1.X && label.Location.Y == data[k].Item1.Y)
+                        if (label.Location.X + ((Amount - 1) * multiplier) == data[k].Item1.X && label.Location.Y == data[k].Item1.Y)
                         {
                             exists = true;
                         }
