@@ -101,5 +101,65 @@ namespace CinemaWindows.Database
 			}
 		}
 
+		public void ReserveTicket(string Owner, string Email, string TicketCode, int MovieID, int Amount, int SeatX, int SeatY, int DateID, int Hall, double TotalPrice, int HallID)
+		{
+			try
+			{
+				Connection.Open();
+
+				string stringToInsert = @"INSERT INTO ticket (Owner, Email, TicketCode, MovieID, Amount, seatX, seatY, DateID, HallID, TotalPrice, Hall) VALUES (@Owner, @Email, @TicketCode, @MovieID, @Amount, @seatX, @seatY, @DateID, @HallID, @TotalPrice, @Hall)";
+
+				MySqlCommand command = new MySqlCommand(stringToInsert, Connection);
+				MySqlParameter OwnerParam = new MySqlParameter("@Owner", MySqlDbType.VarChar);
+				MySqlParameter EmailParam = new MySqlParameter("@Email", MySqlDbType.VarChar);
+				MySqlParameter TicketCodeParam = new MySqlParameter("@TicketCode", MySqlDbType.VarChar);
+				MySqlParameter MovieIDParam = new MySqlParameter("@MovieID", MySqlDbType.Int32);
+				MySqlParameter AmountParam = new MySqlParameter("@Amount", MySqlDbType.Int32);
+				MySqlParameter seatXParam = new MySqlParameter("@seatX", MySqlDbType.Int32);
+				MySqlParameter seatYParam = new MySqlParameter("@seatY", MySqlDbType.Int32);
+				MySqlParameter DateIDParam = new MySqlParameter("@DateID", MySqlDbType.Int32);
+				MySqlParameter HallIDParam = new MySqlParameter("@HallID", MySqlDbType.Int32);
+				MySqlParameter TotalPriceParam = new MySqlParameter("@TotalPrice", MySqlDbType.Double);
+				MySqlParameter HallParam = new MySqlParameter("@Hall", MySqlDbType.Int32);
+
+
+				//TicketIDParam.Value = TicketID;
+				OwnerParam.Value = Owner;
+				EmailParam.Value = Email;
+				TicketCodeParam.Value = TicketCode;
+				MovieIDParam.Value = MovieID;
+				AmountParam.Value = Amount;
+				seatXParam.Value = SeatX;
+				seatYParam.Value = SeatY;
+				DateIDParam.Value = DateID;
+				HallParam.Value = Hall;
+				HallIDParam.Value = HallID;
+				TotalPriceParam.Value = TotalPrice;
+
+				//command.Parameters.Add(TicketIDParam);
+				command.Parameters.Add(OwnerParam);
+				command.Parameters.Add(EmailParam);
+				command.Parameters.Add(TicketCodeParam);
+				command.Parameters.Add(MovieIDParam);
+				command.Parameters.Add(AmountParam);
+				command.Parameters.Add(seatXParam);
+				command.Parameters.Add(seatYParam);
+				command.Parameters.Add(DateIDParam);
+				command.Parameters.Add(HallIDParam);
+				command.Parameters.Add(TotalPriceParam);
+				command.Parameters.Add(HallParam);
+
+				command.Prepare();
+				command.ExecuteNonQuery();
+			}
+			catch (MySqlException)
+			{
+				throw;
+			}
+			finally
+			{
+				Connection.Close();
+			}
+		}
 	}
 }

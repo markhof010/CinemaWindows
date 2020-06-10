@@ -34,6 +34,7 @@ namespace CinemaWindows
         {
             InitializeComponent();
             Amount = amount;
+            HallID = hallID;
             AllSeats = new List<Tuple<Point, Size,Color,bool,double>>();
             DateID = dateID;
             MovieID = movieID;
@@ -153,17 +154,21 @@ namespace CinemaWindows
                     bool canreserve = false;
                     double totalprice = 0.0;
                     int multiplier = 0;
+                    int multiplierY = 0;
                     if (HallNumber == 1)
                     {
                         multiplier = 100;
+                        multiplierY = 40;
                     }
                     else if (HallNumber == 2)
                     {
                         multiplier = 65;
+                        multiplierY = 30;
                     }
                     else if (HallNumber == 3)
                     {
                         multiplier = 40;
+                        multiplierY = 25;
                     }
 
                     for (int k = 0; k < data.Count; k++)
@@ -190,7 +195,7 @@ namespace CinemaWindows
                     if (canreserve && exists)
                     {
                         this.Hide();
-                        PersonInfo destination = new PersonInfo(label.Location,Amount,HallID,totalprice,MovieID,DateID);
+                        PersonInfo destination = new PersonInfo((label.Location.X / multiplier),(label.Location.Y/ multiplierY),Amount,HallID,totalprice,MovieID,DateID,HallNumber);
                         destination.ShowDialog();
                         this.Close();
                     }
